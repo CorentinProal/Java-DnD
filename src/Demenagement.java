@@ -1,22 +1,19 @@
 public class Demenagement {
     public static void main(String[] args) {
         // Variables
-        int totalCartons = 34;  // Nombre total de cartons
-        int capaciteCamion = 9; // Capacité du camion en nombre de cartons
-        int nbVoyages;          // Nombre de voyages nécessaires
+        int totalDesCartons = 34;
+        int placeDansCamion = 9;
+        int nombreDeVoyages;
 
-        // Calcul du nombre de voyages nécessaires
-        nbVoyages = (int) Math.ceil((double) totalCartons / capaciteCamion);
+        nombreDeVoyages = (int) Math.ceil((double) totalDesCartons / placeDansCamion);
 
-        // Affichage du résultat
-        System.out.println("Nombre de cartons à déménager : " + totalCartons);
-        System.out.println("Capacité du camion : " + capaciteCamion);
-        System.out.println("Nombre de voyages nécessaires : " + nbVoyages);
+        System.out.println("Cartons à déménager : " + totalDesCartons);
+        System.out.println("Place dans le camion : " + placeDansCamion);
+        System.out.println("Nombre de voyages nécessaires : " + nombreDeVoyages);
 
-        // Simulation des voyages
-        for (int voyage = 1; voyage <= nbVoyages; voyage++) {
-            int cartonsRestants = totalCartons - (voyage - 1) * capaciteCamion;
-            int cartonsDansCamion = Math.min(cartonsRestants, capaciteCamion);
+        for (int voyage = 1; voyage <= nombreDeVoyages; voyage++) {
+            int cartonsRestants = totalDesCartons - (voyage - 1) * placeDansCamion;
+            int cartonsDansCamion = Math.min(cartonsRestants, placeDansCamion);
             System.out.println("Voyage " + voyage + " : " + cartonsDansCamion + " cartons dans le camion.");
         }
     }
