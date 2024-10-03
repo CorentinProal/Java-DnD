@@ -6,13 +6,13 @@ public class EquipementOffensif{
     private int ATQLevel;
 
     public EquipementOffensif() {
-        this.name = "Arme";
-        this.type = "Massue"; // Ajout de type par défaut
-        this.ATQLevel = 5; // Niveau d'attaque par défaut
+        this.name = "Massue";
+        this.type = "Arme";
+        this.ATQLevel = 5;
     }
 
     public EquipementOffensif(String name) {
-        this(name, "Massue"); // Appel au constructeur avec type par défaut
+        this(name, "Massue");
     }
 
     public EquipementOffensif(String name, String type) {

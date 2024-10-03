@@ -7,12 +7,12 @@ public class EquipementDefensif {
 
     public EquipementDefensif() {
         this.name = "Bouclier";
-        this.type = "Défensif"; // Ajout de type par défaut
-        this.DEFLevel = 5; // Niveau de défense par défaut
+        this.type = "Défensif";
+        this.DEFLevel = 5;
     }
 
     public EquipementDefensif(String name) {
-        this(name, "Bouclier"); // Appel au constructeur avec type par défaut
+        this(name, "Bouclier");
     }
 
     public EquipementDefensif(String name, String type) {
