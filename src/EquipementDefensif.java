@@ -43,6 +43,6 @@ public class EquipementDefensif {
     }
 
     public String toString() {
-        return "\n Défensif : " + name + "\n Type : " + type + "\n DEFLevel : " + DEFLevel; // Correction de la chaîne
+        return "\n Défensif : " + name + "\n Type : " + type + "\n DEFLevel \uD83D\uDEE1\uFE0F : " + DEFLevel; // Correction de la chaîne
     }
 }

@@ -44,6 +44,6 @@ public class EquipementOffensif{
     }
 
     public String toString(){
-        return "\n Offensif : " + name + "\n Type : " + type + "\n ATQLevel : " + ATQLevel; // Correction de la chaîne
+        return "\n Offensif : " + name + "\n Type : " + type + "\n ATQLevel \uD83D\uDDE1\uFE0F : " + ATQLevel; // Correction de la chaîne
     }
 }
