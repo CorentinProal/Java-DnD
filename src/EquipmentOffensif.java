@@ -44,6 +44,6 @@ public class EquipmentOffensif {
         this.type = type;
     }
     public String toString(){
-        return "\n Offensif : " + name + "\n Type : " + type + "\n ATQLevel  \uD83D\uDDE1\uFE0F : + " + ATQLevel; // Correction de la chaîne
+        return "\n Offensif : " + name + "\n Type : " + type + "\n ATQLevel  ⚡\uFE0F : + " + ATQLevel; // Correction de la chaîne
     }
 }

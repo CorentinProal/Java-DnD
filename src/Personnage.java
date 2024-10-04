@@ -16,7 +16,7 @@ public class Personnage {
         if (Objects.equals(type, "Magicien")) {
             this.HP = 6;
             this.ATQ = 15;
-            equipOffensif = new EquipmentOffensif("Baton", "Sort");
+            equipOffensif = new EquipmentOffensif("Sceptre Eternel", "Sort");
             equipDefensif = new EquipementDefensif("Sac", "Philtre");
         } else if (Objects.equals(type, "Guerrier")) {
             this.HP = 10;

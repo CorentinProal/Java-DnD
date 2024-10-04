@@ -24,7 +24,8 @@ public class Menu {
     }
 
     public void demarrerJeu() {
-        while (true) {
+        boolean continuer= true;
+        while (continuer) {
             afficherMessage("Bienvenue dans le jeu !");
             afficherMessage("1. Créer un personnage");
             afficherMessage("2. Statistique du personnage");
@@ -41,23 +42,25 @@ public class Menu {
                     break;
                 case 3:
                     afficherMessage("Merci !");
+                    continuer = false;
                     break;
                 default:
                     afficherMessage("Pas d'option ! ");
 
             }
-
-//            if (choix == 1) {
-//                choisirNom();
-//                choisirClasse();
-//            } else if (choix == 2) {
-//                afficherMessage("Vos statistiques : ");
-//                affichageStat();
+//////////////////////////////////////////////////////////////////////
+//            if (choix == 1) {                                 /////
+//                choisirNom();                                 /////
+//                choisirClasse();                              /////
+//            } else if (choix == 2) {                          /////
+//                afficherMessage("Vos statistiques : ");       /////
+//                affichageStat();                              //////
 //
 //            }else if (choix == 3) {
 //                afficherMessage("Merci !");
 //                break;
 //            } // Switch case a voir
+////////////////////////////////////////////////////////////////////////
        }
     }
 
