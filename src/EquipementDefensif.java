@@ -3,12 +3,12 @@ import java.util.Objects;
 public class EquipementDefensif {
     private String name;
     private String type;
-    private int DEFLevel;
+    private static int DEFLevel; // Conserve DEFLevel
 
     public EquipementDefensif() {
         this.name = "Bouclier";
         this.type = "Défensif";
-        this.DEFLevel = 5;
+        this.DEFLevel = 5; // Valeur par défaut pour DEFLevel
     }
 
     public EquipementDefensif(String name) {
@@ -23,6 +23,8 @@ public class EquipementDefensif {
             this.DEFLevel = 5;
         } else if (Objects.equals(type, "Philtre")) {
             this.DEFLevel = 10;
+        } else {
+            this.DEFLevel = 0; // Valeur par défaut si le type n'est pas reconnu
         }
     }
 
@@ -42,7 +44,11 @@ public class EquipementDefensif {
         this.type = type;
     }
 
+    public static int getDEFLevel() { // Méthode pour obtenir DEFLevel
+        return DEFLevel;
+    }
+
     public String toString() {
-        return "\n Défensif : " + name + "\n Type : " + type + "\n DEFLevel \uD83D\uDEE1\uFE0F : " + DEFLevel; // Correction de la chaîne
+        return "\n Défensif : " + name + "\n Type : " + type + "\n DEFLevel \uD83D\uDEE1\uFE0F : + " + DEFLevel; // Mise à jour de la chaîne
     }
 }
