@@ -29,19 +29,35 @@ public class Menu {
             afficherMessage("2. Statistique du personnage");
             afficherMessage("3. Sortir du jeu");
             int choix = obtenirChoix(3);
+            switch (choix) {
+                case 1:
+                    choisirNom();
+                    choisirClasse();
+                    break;
+                case 2:
+                    afficherMessage("Vos statistiques : ");
+                    affichageStat();
+                    break;
+                case 3:
+                    afficherMessage("Merci !");
+                    break;
+                default:
+                    afficherMessage("Pas d'option ! ");
 
-            if (choix == 1) {
-                choisirNom();
-                choisirClasse();
-            } else if (choix == 2) {
-                afficherMessage("Vos statistiques : ");
-                affichageStat();
-
-            }else if (choix == 3) {
-                afficherMessage("Merci !");
-                break;
             }
-        }
+
+//            if (choix == 1) {
+//                choisirNom();
+//                choisirClasse();
+//            } else if (choix == 2) {
+//                afficherMessage("Vos statistiques : ");
+//                affichageStat();
+//
+//            }else if (choix == 3) {
+//                afficherMessage("Merci !");
+//                break;
+//            } // Switch case a voir
+       }
     }
 
     private void choisirNom() {
