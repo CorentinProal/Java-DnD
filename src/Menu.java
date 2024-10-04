@@ -4,6 +4,7 @@ public class Menu {
     private String playerName;
     private String playerClass;
 
+
     public Menu() {
         scanner = new Scanner(System.in);
     }
@@ -78,5 +79,6 @@ public class Menu {
     private void affichageStat(){
             Personnage personnage = new Personnage(playerName, playerClass);
             afficherMessage(personnage.toString());
-    }   
+    }
+
 }
