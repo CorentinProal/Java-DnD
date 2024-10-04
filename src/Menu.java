@@ -26,15 +26,19 @@ public class Menu {
         while (true) {
             afficherMessage("Bienvenue dans le jeu !");
             afficherMessage("1. Créer un personnage");
-            afficherMessage("2. Sortir du jeu");
-            int choix = obtenirChoix(2);
+            afficherMessage("2. Statistique du personnage");
+            afficherMessage("3. Sortir du jeu");
+            int choix = obtenirChoix(3);
 
             if (choix == 1) {
                 choisirNom();
                 choisirClasse();
-                afficherStats();
             } else if (choix == 2) {
-                afficherMessage("Merci d'avoir joué !");
+                afficherMessage("Vos statistiques : ");
+                affichageStat();
+
+            }else if (choix == 3) {
+                afficherMessage("Merci !");
                 break;
             }
         }
@@ -55,8 +59,8 @@ public class Menu {
         afficherMessage("Vous avez choisi la classe : " + playerClass);
     }
 
-    private void afficherStats() {
-        Personnage personnage = new Personnage(playerName, playerClass);
-        afficherMessage(personnage.toString());
-    }
+    private void affichageStat(){
+            Personnage personnage = new Personnage(playerName, playerClass);
+            afficherMessage(personnage.toString());
+    }   
 }

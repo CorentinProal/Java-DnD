@@ -10,18 +10,18 @@ public class Personnage {
         this.name = name;
         this.type = type;
 
-        EquipementOffensif equipOffensif = new EquipementOffensif();
+        EquipmentOffensif equipOffensif = new EquipmentOffensif();
         EquipementDefensif equipDefensif = new EquipementDefensif();
 
         if (Objects.equals(type, "Magicien")) {
             this.HP = 6;
             this.ATQ = 15;
-            equipOffensif = new EquipementOffensif("Baton", "Sort");
+            equipOffensif = new EquipmentOffensif("Baton", "Sort");
             equipDefensif = new EquipementDefensif("Sac", "Philtre");
         } else if (Objects.equals(type, "Guerrier")) {
             this.HP = 10;
             this.ATQ = 10;
-            equipOffensif = new EquipementOffensif("Massue", "Arme");
+            equipOffensif = new EquipmentOffensif("Massue", "Arme");
             equipDefensif = new EquipementDefensif("Armure", "Bouclier");
         }
 
@@ -29,7 +29,7 @@ public class Personnage {
         System.out.println();
         System.out.println("Équipement Défensif: " + equipDefensif);
         this.HP += EquipementDefensif.getDEFLevel();
-        this.ATQ += EquipementOffensif.getATQLevel();
+        this.ATQ += EquipmentOffensif.getATQLevel();
     }
 
     public String getName() {

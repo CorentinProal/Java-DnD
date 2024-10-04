@@ -8,7 +8,7 @@ public class EquipementDefensif {
     public EquipementDefensif() {
         this.name = "Bouclier";
         this.type = "Défensif";
-        this.DEFLevel = 5; // Valeur par défaut pour DEFLevel
+        DEFLevel = 5; // Valeur par défaut pour DEFLevel
     }
 
     public EquipementDefensif(String name) {
@@ -20,11 +20,11 @@ public class EquipementDefensif {
         this.type = type;
 
         if (Objects.equals(type, "Bouclier")) {
-            this.DEFLevel = 5;
+            DEFLevel = 5;
         } else if (Objects.equals(type, "Philtre")) {
-            this.DEFLevel = 10;
+            DEFLevel = 10;
         } else {
-            this.DEFLevel = 0; // Valeur par défaut si le type n'est pas reconnu
+            DEFLevel = 0; // Valeur par défaut si le type n'est pas reconnu
         }
     }
 
