@@ -21,8 +21,8 @@ public class Game {
     }
 
     // Le joueur avance de plusieurs cases en fonction du dé virtuel (entre 1 et 6)
-    public void avancerJoueur() {
-        int lancerDe = (int)(Math.random() * 6) + 1;  // Génère un nombre aléatoire entre 1 et 6
+    public void Delpacement() {
+        int lancerDe = (int)(Math.random() * 6) + 1;
         position += lancerDe;
         if (position > FIN_PLATEAU) {
             position = FIN_PLATEAU;  // Limite à la fin du plateau
@@ -30,7 +30,7 @@ public class Game {
         System.out.println("Vous avancez de " + lancerDe + " cases. Vous êtes maintenant sur la case " + position + "/" + FIN_PLATEAU);
     }
 
-    public boolean estFini() {
+    public boolean Fin() {
         return position >= FIN_PLATEAU;
     }
 

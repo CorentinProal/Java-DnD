@@ -28,7 +28,6 @@ public class Personnage {
         this.ATQ += equipOffensif.getATQLevel();
     }
 
-    // Getters pour les équipements
     public EquipmentOffensif getEquipementOffensif() {
         return equipOffensif;
     }
