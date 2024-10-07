@@ -22,7 +22,7 @@ public class EquipmentOffensif {
         if(Objects.equals(type, "Arme")){
             ATQLevel = 5;
         } else if(Objects.equals(type, "Sort")){
-            ATQLevel = 7;
+            ATQLevel = 17;
         } else {
             ATQLevel = 0;
         }

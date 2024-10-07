@@ -31,23 +31,18 @@ public class EquipementDefensif {
     public String getName() {
         return name;
     }
-
     public String getType() {
         return type;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setType(String type) {
         this.type = type;
     }
-
     public static int getDEFLevel() { // Méthode pour obtenir DEFLevel
         return DEFLevel;
     }
-
     public String toString() {
         return "\n Défensif : " + name + "\n Type : " + type + "\n DEFLevel \uD83D\uDEE1\uFE0F : + " + DEFLevel; // Mise à jour de la chaîne
     }
