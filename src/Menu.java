@@ -1,9 +1,8 @@
 import java.util.Scanner;
+
 public class Menu {
     private Scanner scanner;
-    private String playerName;
-    private String playerClass;
-
+    private Game game;
 
     public Menu() {
         scanner = new Scanner(System.in);
@@ -24,64 +23,95 @@ public class Menu {
     }
 
     public void demarrerJeu() {
-        boolean continuer= true;
+        boolean continuer = true;
         while (continuer) {
             afficherMessage("Bienvenue dans le jeu !");
             afficherMessage("1. Créer un personnage");
-            afficherMessage("2. Statistique du personnage");
-            afficherMessage("3. Sortir du jeu");
-            int choix = obtenirChoix(3);
+            afficherMessage("2. Voir les statistiques du personnage");
+            afficherMessage("3. Démarrer la partie");
+            afficherMessage("4. Sortir du jeu");
+            int choix = obtenirChoix(4);
+
             switch (choix) {
                 case 1:
-                    choisirNom();
-                    choisirClasse();
+                    creerPersonnage();
                     break;
                 case 2:
-                    afficherMessage("Vos statistiques : ");
-                    affichageStat();
-                    break;
+                    afficherInfosPersonnage();
+                    break; // Corrigé : on a besoin de sortir de switch après avoir appelé afficherInfosPersonnage()
                 case 3:
-                    afficherMessage("Merci !");
+                    if (game != null) {
+                        jouerPartie();
+                    } else {
+                        afficherMessage("Veuillez créer un personnage avant de commencer la partie.");
+                    }
+                    break;
+                case 4:
+                    afficherMessage("Merci d'avoir joué !");
                     continuer = false;
                     break;
                 default:
-                    afficherMessage("Pas d'option ! ");
-
+                    afficherMessage("Option invalide.");
+                    break;
             }
-//////////////////////////////////////////////////////////////////////
-//            if (choix == 1) {                                 /////
-//                choisirNom();                                 /////
-//                choisirClasse();                              /////
-//            } else if (choix == 2) {                          /////
-//                afficherMessage("Vos statistiques : ");       /////
-//                affichageStat();                              //////
-//
-//            }else if (choix == 3) {
-//                afficherMessage("Merci !");
-//                break;
-//            } // Switch case a voir
-////////////////////////////////////////////////////////////////////////
-       }
+        }
     }
 
-    private void choisirNom() {
+    private void creerPersonnage() {
         System.out.print("Veuillez entrer votre nom: ");
-        playerName = scanner.next();
-        afficherMessage("Bienvenue, " + playerName + " !");
-    }
-
-    private void choisirClasse() {
+        String playerName = scanner.next();
         afficherMessage("Choisissez votre classe :");
         afficherMessage("1. Guerrier");
         afficherMessage("2. Magicien");
         int choixClasse = obtenirChoix(2);
-        playerClass = (choixClasse == 1) ? "Guerrier" : "Magicien";
-        afficherMessage("Vous avez choisi la classe : " + playerClass);
+        String playerClass = (choixClasse == 1) ? "Guerrier" : "Magicien";
+
+        game = new Game(playerName, playerClass);
+        afficherMessage("Personnage créé : " + game.getPersonnage().toString());
     }
 
-    private void affichageStat(){
-            Personnage personnage = new Personnage(playerName, playerClass);
-            afficherMessage(personnage.toString());
+    private void afficherInfosPersonnage() {
+        if (game != null) {
+            afficherMessage(game.getPersonnage().toString());
+            String equipOffensif = game.getPersonnage().getEquipementOffensif().toString();
+            System.out.println("Equipement offensif : " + equipOffensif);
+            String equipDefensif = game.getPersonnage().getEquipementDefensif().toString();
+            System.out.println("Equipement défensif : " + equipDefensif);
+            System.out.println();
+        } else {
+            afficherMessage("Aucun personnage n'a été créé.");
+        }
     }
 
+    private void jouerPartie() {
+        afficherMessage("La partie commence !");
+        scanner.nextLine();
+
+        while (!game.estFini()) {
+            System.out.println("\nAppuyez sur [Espace] pour lancer le dé...");
+
+            while (true) {
+                String input = scanner.nextLine();
+                if (input.equals("") || input.equals(" ")) {
+                    break;
+                } else {
+                    System.out.println("Appuyez sur [Espace] pour lancer le dé...");
+                }
+            }
+
+            game.avancerJoueur();
+
+            if (game.estFini()) {
+                afficherMessage("Félicitations ! Vous avez terminé le jeu !");
+                afficherMessage("Voulez-vous recommencer ? (1. Oui / 2. Non)");
+                int choixRecommencer = obtenirChoix(2);
+                if (choixRecommencer == 1) {
+                    game.setPosition(1);
+                } else {
+                    afficherMessage("Merci d'avoir joué !");
+                    break;
+                }
+            }
+        }
+    }
 }
