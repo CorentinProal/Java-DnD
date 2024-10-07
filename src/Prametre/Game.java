@@ -1,3 +1,6 @@
+package Prametre;
+import Personnage.Personnage;
+
 public class Game {
     private Personnage personnage;
     private int position;  // Position actuelle du joueur sur le plateau (1 à 64)
@@ -42,17 +45,17 @@ public class Game {
 
 
 //Attributs de la classe :
-//private Personnage personnage; : Représente le personnage du joueur.
+//private Personnage.Personnage personnage; : Représente le personnage du joueur.
 //private int position; : Indique la position actuelle du joueur sur le plateau de jeu, qui varie de 1 à 64.
 //private final int LimitePlateau = 64; : Constante qui définit la limite supérieure du plateau de jeu.
 
 
 //Constructeur :
-//public Game(String nom, String type) : Crée une nouvelle instance de Game en initialisant le personnage avec un nom et un type, et en plaçant le joueur à la position de départ (1).
+//public Prametre.Game(String nom, String type) : Crée une nouvelle instance de Prametre.Game en initialisant le personnage avec un nom et un type, et en plaçant le joueur à la position de départ (1).
 
 
 //Accesseurs (Getters) :
-//public Personnage getPersonnage() : Renvoie le personnage du joueur.
+//public Personnage.Personnage getPersonnage() : Renvoie le personnage du joueur.
 //public int getPosition() : Renvoie la position actuelle du joueur sur le plateau.
 
 

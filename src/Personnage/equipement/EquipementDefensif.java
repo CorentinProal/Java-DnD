@@ -1,3 +1,4 @@
+package Personnage.equipement;
 import java.util.Objects;
 
 public class EquipementDefensif {

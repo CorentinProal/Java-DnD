@@ -1,3 +1,4 @@
+package Prametre;
 import java.util.Scanner;
 
 public class Menu {
@@ -70,7 +71,7 @@ public class Menu {
         String playerClass = (choixClasse == 1) ? "Guerrier" : "Magicien";
 
         game = new Game(playerName, playerClass);
-        Message("Et paf c'est fait !  : " + game.getPersonnage().toString());
+        Message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
     }
 
     private void InfosPersonnage() {
@@ -78,6 +79,7 @@ public class Menu {
             Message(game.getPersonnage().toString());
             String equipOffensif = game.getPersonnage().getEquipementOffensif().toString();
             System.out.println("Equipement offensif : " + equipOffensif);
+            System.out.println("");
             String equipDefensif = game.getPersonnage().getEquipementDefensif().toString();
             System.out.println("Equipement défensif : " + equipDefensif);
             System.out.println();
@@ -122,16 +124,16 @@ public class Menu {
 
 //Importation et déclaration de classe :
 //import java.util.Scanner; : Importation de la classe Scanner pour la lecture des entrées utilisateur.
-//public class Menu : Déclaration de la classe Menu qui gère l'interface utilisateur pour le jeu.
+//public class Prametre.Menu : Déclaration de la classe Prametre.Menu qui gère l'interface utilisateur pour le jeu.
 
 
 //Attributs de la classe :
 //private Scanner sc; : Instance de Scanner pour lire les entrées utilisateur.
-//private Game game; : Référence à un objet Game, représentant la partie en cours.
+//private Prametre.Game game; : Référence à un objet Prametre.Game, représentant la partie en cours.
 
 
 //Constructeur :
-//public Menu() : Initialise le scanner pour la lecture des entrées.
+//public Prametre.Menu() : Initialise le scanner pour la lecture des entrées.
 
 
 //Méthode pour afficher des messages :
@@ -153,7 +155,7 @@ public class Menu {
 //Méthode de création de personnage :
 //private void CreationPersonnage() :
 //Demande le nom du joueur et la classe choisie (Guerrier ou Magicien).
-//Crée un nouvel objet Game avec ces informations et affiche un message de confirmation.
+//Crée un nouvel objet Prametre.Game avec ces informations et affiche un message de confirmation.
 
 
 //Méthode pour afficher les informations du personnage :

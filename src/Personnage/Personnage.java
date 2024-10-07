@@ -1,3 +1,7 @@
+package Personnage;
+import Personnage.equipement.EquipementDefensif;
+import Personnage.equipement.EquipmentOffensif;
+
 import java.util.*;
 
 public class Personnage {
@@ -47,7 +51,7 @@ public class Personnage {
 
 
 //Déclaration de la classe :
-//public class Personnage : Déclaration de la classe Personnage, qui représente un personnage dans le jeu.
+//public class Personnage.Personnage : Déclaration de la classe Personnage.Personnage, qui représente un personnage dans le jeu.
 
 
 //Attributs de la classe :
@@ -55,12 +59,12 @@ public class Personnage {
 //private String type; : Type du personnage (par exemple, Magicien ou Guerrier).
 //private int HP; : Points de vie du personnage.
 //private int ATQ; : Points d'attaque du personnage.
-//private EquipmentOffensif equipOffensif; : Équipement offensif du personnage.
-//private EquipementDefensif equipDefensif; : Équipement défensif du personnage.
+//private Personnage.equipement.EquipmentOffensif equipOffensif; : Équipement offensif du personnage.
+//private Personnage.equipement.EquipementDefensif equipDefensif; : Équipement défensif du personnage.
 
 
 //Constructeur :
-//public Personnage(String name, String type) :
+//public Personnage.Personnage(String name, String type) :
 //Initialise le personnage avec un nom et un type.
 //Détermine les caractéristiques (HP et ATQ) en fonction du type de personnage.
 //Pour un Magicien : 6 HP et 15 ATQ avec un sceptre et un sac.
@@ -72,8 +76,8 @@ public class Personnage {
 
 
 //Méthodes d'accès (Getters) :
-//public EquipmentOffensif getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
-//public EquipementDefensif getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
+//public Personnage.equipement.EquipmentOffensif getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
+//public Personnage.equipement.EquipementDefensif getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
 
 
 //Méthode de représentation en chaîne :
