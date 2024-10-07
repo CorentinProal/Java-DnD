@@ -16,7 +16,7 @@ public class Menu {
     public int ChoixOption(int nombreOptions) {
         int choix = -1;
         while (choix < 1 || choix > nombreOptions) {
-            System.out.print("Veuillez entrer votre choix (1-" + nombreOptions + "): ");
+            System.out.print("Tu choisis ouuu ? (1-" + nombreOptions + "): ");
             choix = sc.nextInt();
         }
         return choix;
@@ -24,12 +24,15 @@ public class Menu {
 
     public void MenuDebut() {
         boolean continuer = true;
+
+        Message("\n Bienvenue chez Kayangel ! ");
+
         while (continuer) {
-            Message("Bienvenue dans le jeu !");
-            Message("1. Créer un personnage");
-            Message("2. Voir les statistiques du personnage");
-            Message("3. Démarrer la partie");
-            Message("4. Sortir du jeu");
+
+            Message("1. Créer ton perso ");
+            Message("2. Voir tes stats ");
+            Message("3. Ça part ! ");
+            Message("4. Fin du game ");
             int choix = ChoixOption(4);
 
             switch (choix) {
@@ -43,11 +46,11 @@ public class Menu {
                     if (game != null) {
                         Jouer();
                     } else {
-                        Message("Veuillez créer un personnage avant de commencer la partie.");
+                        Message("Il te faut un perso.");
                     }
                     break;
                 case 4:
-                    Message("Merci d'avoir joué !");
+                    Message("Merci d'avoir joué !"+ "\n T'es un GOAT");
                     continuer = false;
                     break;
                 default:
@@ -58,16 +61,16 @@ public class Menu {
     }
 
     private void CreationPersonnage() {
-        System.out.print("Veuillez entrer votre nom: ");
+        System.out.print("C'est quoi ton petit nom ? : ");
         String playerName = sc.next();
-        Message("Choisissez votre classe :");
+        Message("Tu joue quoi ? :");
         Message("1. Guerrier");
         Message("2. Magicien");
         int choixClasse = ChoixOption(2);
         String playerClass = (choixClasse == 1) ? "Guerrier" : "Magicien";
 
         game = new Game(playerName, playerClass);
-        Message("Personnage créé : " + game.getPersonnage().toString());
+        Message("Et paf c'est fait !  : " + game.getPersonnage().toString());
     }
 
     private void InfosPersonnage() {
@@ -88,27 +91,28 @@ public class Menu {
         sc.nextLine();
 
         while (!game.Fin()) {
-            System.out.println("\nAppuyez sur [Espace] pour lancer le dé...");
+            System.out.println("\nAppuyez sur [Entrée] pour lancer le dé...");
 
             while (true) {
                 String input = sc.nextLine();
                 if (input.equals("") || input.equals(" ")) {
                     break;
                 } else {
-                    System.out.println("Appuyez sur [Espace] pour lancer le dé...");
+                    System.out.println("Appuyez sur [Entrée] pour lancer le dé...");
                 }
             }
 
             game.Delpacement();
 
             if (game.Fin()) {
-                Message("Félicitations ! Vous avez terminé le jeu !");
-                Message("Voulez-vous recommencer ? (1. Oui / 2. Non)");
+                Message("T'es trop fort le S t'as fini ! ");
+                Message("Tu rejoue ouuuu ? (1. Oui / 2. Nope)");
                 int choixRecommencer = ChoixOption(2);
                 if (choixRecommencer == 1) {
                     game.setPosition(1);
                 } else {
-                    Message("Merci d'avoir joué !");
+                    Message("Merci d'avoir joué !" +
+                            "\n T'es un GOAT");
                     break;
                 }
             }
