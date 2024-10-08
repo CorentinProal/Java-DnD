@@ -1,7 +1,7 @@
-package Personnage.equipement;
+package Personnage.equipement.defensif;
 import java.util.Objects;
 
-public class EquipementDefensif {
+public abstract class EquipementDefensif {
     private String name;
     private String type;
     private static int DEFLevel; // Conserve DEFLevel

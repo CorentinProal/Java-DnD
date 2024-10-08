@@ -1,9 +1,9 @@
 package Personnage;
 
-import Personnage.equipement.EquipementDefensif;
-import Personnage.equipement.EquipmentOffensif;
+import Personnage.equipement.defensif.EquipementDefensif;
+import Personnage.equipement.offensif.EquipmentOffensif;
 
-public class Personnage { // Classe de base abstraite
+public abstract class Personnage { // Classe de base abstraite
     protected String name;
     protected String type;
     protected int HP;
@@ -54,8 +54,8 @@ public class Personnage { // Classe de base abstraite
 //private String type; : Type du personnage (par exemple, Magicien ou Guerrier).
 //private int HP; : Points de vie du personnage.
 //private int ATQ; : Points d'attaque du personnage.
-//private Personnage.equipement.EquipmentOffensif equipOffensif; : Équipement offensif du personnage.
-//private Personnage.equipement.EquipementDefensif equipDefensif; : Équipement défensif du personnage.
+//private Personnage.equipement.offensif.EquipmentOffensif equipOffensif; : Équipement offensif du personnage.
+//private Personnage.equipement.defensif.EquipementDefensif equipDefensif; : Équipement défensif du personnage.
 
 
 //Constructeur :
@@ -71,8 +71,8 @@ public class Personnage { // Classe de base abstraite
 
 
 //Méthodes d'accès (Getters) :
-//public Personnage.equipement.EquipmentOffensif getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
-//public Personnage.equipement.EquipementDefensif getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
+//public Personnage.equipement.offensif.EquipmentOffensif getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
+//public Personnage.equipement.defensif.EquipementDefensif getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
 
 
 //Méthode de représentation en chaîne :

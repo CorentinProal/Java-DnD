@@ -1,8 +1,8 @@
 package Personnage.classe;
 
 import Personnage.Personnage;
-import Personnage.equipement.EquipementDefensif;
-import Personnage.equipement.EquipmentOffensif;
+import Personnage.equipement.defensif.Bouclier;
+import Personnage.equipement.offensif.Arme;
 
 public class Guerrier extends Personnage {
     public Guerrier(String name) {
@@ -10,7 +10,8 @@ public class Guerrier extends Personnage {
         parametreheros();
     }
 
+    @Override
     public void parametreheros() {
-        this.recuperationstuff(10, 10, new EquipmentOffensif("Massue", "Arme"), new EquipementDefensif("Armure", "Bouclier"));
+        this.recuperationstuff(10, 10, new Arme("Massue", "Arme"), new Bouclier("Armure", "Bouclier"));
     }
 }
