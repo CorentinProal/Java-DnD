@@ -1,6 +1,4 @@
 package Personnage.equipement.offensif;
-import java.util.Objects;
-
 public abstract class EquipmentOffensif {
     private String name;
     private String type;
@@ -17,15 +15,6 @@ public abstract class EquipmentOffensif {
     public EquipmentOffensif(String name, String type) {
         this.name = name;
         this.type = type;
-
-        // Définition du niveau d'attaque en fonction du type
-        if(Objects.equals(type, "Arme")){
-            ATQLevel = 5;
-        } else if(Objects.equals(type, "Sort")){
-            ATQLevel = 17;
-        } else {
-            ATQLevel = 0;
-        }
     }
 
     public String getName() {
@@ -36,21 +25,19 @@ public abstract class EquipmentOffensif {
         return type;
     }
 
-    public int getATQLevel() {
-        return ATQLevel;
-    }
-    public int setATQLevel(int ATQLevel) {
-        this.ATQLevel = ATQLevel;
-    }
-
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setType(String type) {
         this.type = type;
     }
+    public int getATQLevel() {
+        return ATQLevel;
+    }
+    public void setATQLevel(int ATQLevel) {
+        this.ATQLevel = ATQLevel;
+    }
+
 
     public String toString() {
         return "\n Offensif : " + name + "\n Type : " + type + "\n ATQLevel ⚡ : + " + ATQLevel;

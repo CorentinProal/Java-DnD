@@ -6,7 +6,6 @@ import Personnage.classe.Magicien;
 
 public class Menu {
     private Scanner sc;
-    private Game game;
 
     public Menu() {
         sc = new Scanner(System.in);
@@ -17,118 +16,23 @@ public class Menu {
         System.out.println();
     }
 
-    public int ChoixOption(int nombreOptions) {
-        int choix = -1;
-        while (choix < 1 || choix > nombreOptions) {
-            System.out.print("Tu choisis ouuu ? (1-" + nombreOptions + "): ");
-            choix = sc.nextInt();
-        }
-        return choix;
-    }
-
-    public void MenuDebut() {
-        boolean continuer = true;
-
-        Message("\n Bienvenue chez Kayangel ! ");
-
-        while (continuer) {
-
-            Message("1. Créer ton perso ");
-            Message("2. Voir tes stats ");
-            Message("3. Ça part ! ");
-            Message("4. Fin du game ");
-            int choix = ChoixOption(4);
-
-            switch (choix) {
-                case 1:
-                    CreationPersonnage();
-                    break;
-                case 2:
-                    InfosPersonnage();
-                    break;
-                case 3:
-                    if (game != null) {
-                        Jouer();
-                    } else {
-                        Message("Il te faut un perso.");
-                    }
-                    break;
-                case 4:
-                    Message("Merci d'avoir joué !"+ "\n T'es un GOAT");
-                    continuer = false;
-                    break;
-                default:
-                    Message("Option invalide.");
-                    break;
-            }
-        }
-    }
-
-    private void CreationPersonnage() {
+    public void CreationPersonnage(Game game) {
         System.out.print("C'est quoi ton petit nom ? : ");
         String playerName = sc.next();
         Message("Tu joues quoi ? :");
         Message("1. Guerrier");
         Message("2. Magicien");
-        int choixClasse = ChoixOption(2);
+        int choixClasse = game.ChoixOption(2); // Appel à la méthode ChoixOption de Game
 
         if (choixClasse == 1) {
-            game = new Game(new Guerrier(playerName));
+            game.setPersonnage(new Guerrier(playerName));
         } else {
-            game = new Game(new Magicien(playerName));
+            game.setPersonnage(new Magicien(playerName));
         }
 
         Message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
     }
-
-    private void InfosPersonnage() {
-        if (game != null) {
-            Message(game.getPersonnage().toString());
-            String equipOffensif = game.getPersonnage().getEquipementOffensif().toString();
-            System.out.println("Equipement offensif : " + equipOffensif);
-            System.out.println("");
-            String equipDefensif = game.getPersonnage().getEquipementDefensif().toString();
-            System.out.println("Equipement défensif : " + equipDefensif);
-            System.out.println();
-        } else {
-            Message("Aucun personnage n'a été créé.");
-        }
-    }
-
-    private void Jouer() {
-        Message("La partie commence !");
-        sc.nextLine();
-
-        while (!game.Fin()) {
-            System.out.println("\nAppuyez sur [Entrée] pour lancer le dé...");
-
-            while (true) {
-                String input = sc.nextLine();
-                if (input.equals("") || input.equals(" ")) {
-                    break;
-                } else {
-                    System.out.println("Appuyez sur [Entrée] pour lancer le dé...");
-                }
-            }
-
-            game.Delpacement();
-
-            if (game.Fin()) {
-                Message("T'es trop fort le S t'as fini ! ");
-                Message("Tu rejoue ouuuu ? (1. Oui / 2. Nope)");
-                int choixRecommencer = ChoixOption(2);
-                if (choixRecommencer == 1) {
-                    game.setPosition(1);
-                } else {
-                    Message("Merci d'avoir joué !" +
-                            "\n T'es un GOAT");
-                    break;
-                }
-            }
-        }
-    }
 }
-
 
 //Importation et déclaration de classe :
 //import java.util.Scanner; : Importation de la classe Scanner pour la lecture des entrées utilisateur.
@@ -146,12 +50,6 @@ public class Menu {
 
 //Méthode pour afficher des messages :
 //public void Message(String message) : Affiche un message à l'utilisateur suivi d'une ligne vide.
-
-
-//Méthode pour gérer le choix d'options :
-//public int ChoixOption(int nombreOptions) :
-//Demande à l'utilisateur de choisir une option entre 1 et nombreOptions.
-//Continue de demander jusqu'à ce que l'utilisateur entre un choix valide.
 
 
 //Méthode principale du menu :
@@ -177,4 +75,4 @@ public class Menu {
 //Démarre la partie en affichant un message.
 //Permet au joueur de lancer le dé en appuyant sur la barre d'espace.
 //Gère le déplacement du personnage sur le plateau et vérifie si le jeu est terminé.
-//Propose la possibilité de recommencer la partie ou de quitter à la fin.
+//Propose la possibilité de recommencer la partie ou de quitter à la fin

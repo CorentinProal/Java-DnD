@@ -17,8 +17,8 @@ public abstract class Personnage { // Classe de base abstraite
     }
 
     protected void recuperationstuff(int hp, int atq, EquipmentOffensif equipOffensif, EquipementDefensif equipDefensif) {
-        this.HP = hp + EquipementDefensif.getDEFLevel();
-        this.ATQ = atq + EquipmentOffensif.getATQLevel();
+        this.HP = hp + equipDefensif.getDEFLevel();
+        this.ATQ = atq + equipOffensif.getATQLevel();
         this.equipOffensif = equipOffensif;
         this.equipDefensif = equipDefensif;
     }

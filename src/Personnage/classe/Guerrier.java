@@ -12,6 +12,6 @@ public class Guerrier extends Personnage {
 
     @Override
     public void parametreheros() {
-        this.recuperationstuff(10, 10, new Arme("Massue", "Arme"), new Bouclier("Armure", "Bouclier"));
+        this.recuperationstuff(10, 10, new Arme(), new Bouclier());
     }
 }

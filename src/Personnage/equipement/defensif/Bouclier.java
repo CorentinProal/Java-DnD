@@ -1,8 +1,12 @@
 package Personnage.equipement.defensif;
 
 public class Bouclier extends EquipementDefensif {
-    public Bouclier(String name, String type) {
-        super(name, type);  // Call the parent constructor
+    public Bouclier() {
+        super();
+        this.setName("Bouclier léger des ombres");
+        this.setType("Bouclier");
+        this.setDEFLevel(18);
+
     }
 
 

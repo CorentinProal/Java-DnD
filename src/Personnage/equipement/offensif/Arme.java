@@ -1,7 +1,10 @@
 package Personnage.equipement.offensif;
 
 public class Arme extends EquipmentOffensif {
-    public Arme(String name, String type) {
-        super(name, type);
+    public Arme() {
+        super();
+        this.setName("Coup uppercut");
+        this.setType("Arme");
+        this.setATQLevel(5);
     }
 }

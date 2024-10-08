@@ -19,14 +19,6 @@ public abstract class EquipementDefensif {
     public EquipementDefensif(String name, String type) {
         this.name = name;
         this.type = type;
-
-        if (Objects.equals(type, "Bouclier")) {
-            DEFLevel = 5;
-        } else if (Objects.equals(type, "Philtre")) {
-            DEFLevel = 10;
-        } else {
-            DEFLevel = 0; // Valeur par défaut si le type n'est pas reconnu
-        }
     }
 
     public String getName() {
