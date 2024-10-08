@@ -32,7 +32,7 @@ public class Game {
         this.position = position;
     }
 
-    public void start() {
+    public void start() throws PersonnageHorsPlateauException {
         boolean continuer = true;
 
         menu.Message("\n Bienvenue chez Kayangel !");
@@ -79,12 +79,12 @@ public class Game {
         return choix;
     }
 
-    // Le joueur avance de plusieurs cases en fonction du dé virtuel (entre 1 et 6)
-    public void Deplacement() {
+
+    public void Deplacement() throws PersonnageHorsPlateauException {
         int lancerDe = (int)(Math.random() * 6) + 1;
         position += lancerDe;
         if (position > LimitePlateau) {
-            position = LimitePlateau;  // Limite à la fin du plateau
+            throw new PersonnageHorsPlateauException("Tu es hors plateau !");
         }
         System.out.println("Vous avancez de " + lancerDe + " cases. Vous êtes maintenant sur la case " + position + "/" + LimitePlateau);
     }
@@ -98,7 +98,7 @@ public class Game {
         System.out.println();
     }
 
-    public void Jouer() {
+    public void Jouer() throws PersonnageHorsPlateauException {
         Message("La partie commence !");
         sc.nextLine();
 
