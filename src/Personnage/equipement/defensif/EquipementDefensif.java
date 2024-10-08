@@ -4,7 +4,7 @@ import java.util.Objects;
 public abstract class EquipementDefensif {
     private String name;
     private String type;
-    private static int DEFLevel; // Conserve DEFLevel
+    private int DEFLevel; // Conserve DEFLevel
 
     public EquipementDefensif() {
         this.name = "Bouclier";
@@ -41,8 +41,11 @@ public abstract class EquipementDefensif {
     public void setType(String type) {
         this.type = type;
     }
-    public static int getDEFLevel() { // Méthode pour obtenir DEFLevel
+    public int getDEFLevel() { // Méthode pour obtenir DEFLevel
         return DEFLevel;
+    }
+    public void setDEFLevel(int DEFLevel) {
+        this.DEFLevel = DEFLevel;
     }
     public String toString() {
         return "\n Défensif : " + name + "\n Type : " + type + "\n DEFLevel \uD83D\uDEE1\uFE0F : + " + DEFLevel; // Mise à jour de la chaîne

@@ -4,7 +4,7 @@ import java.util.Objects;
 public abstract class EquipmentOffensif {
     private String name;
     private String type;
-    private static int ATQLevel;
+    private  int ATQLevel;
 
     public EquipmentOffensif() {
         this("Massue", "Arme");
@@ -36,9 +36,13 @@ public abstract class EquipmentOffensif {
         return type;
     }
 
-    public static int getATQLevel() {
+    public int getATQLevel() {
         return ATQLevel;
     }
+    public int setATQLevel(int ATQLevel) {
+        this.ATQLevel = ATQLevel;
+    }
+
 
     public void setName(String name) {
         this.name = name;

@@ -1,8 +1,12 @@
 package Personnage.equipement.offensif;
 
-public class Sort extends EquipmentOffensif {
-    public Sort(String name, String type) {
-        super(name, type);
-    }
+import java.util.Objects;
 
+public class Sort extends EquipmentOffensif {
+    public Sort() {
+        super();
+        this.setName("Sort");
+        this.setType("Sort");
+        this.setATQLevel(17);
+    }
 }
