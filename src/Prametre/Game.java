@@ -1,14 +1,15 @@
 package Prametre;
+
 import Personnage.Personnage;
 
 public class Game {
-    private Personnage personnage;
+    private final Personnage personnage;
     private int position;  // Position actuelle du joueur sur le plateau (1 à 64)
-    private final int LimitePlateau= 64;  // Fin du plateau
+    private final int LimitePlateau = 64;  // Fin du plateau
 
-    public Game(String nom, String type) {
-        personnage = new Personnage(nom, type);
-        position = 1;  // Le joueur commence à la position 1
+    public Game(Personnage personnage) {
+        this.personnage = personnage;
+        this.position = 1;  // Le joueur commence à la position 1
     }
 
     public Personnage getPersonnage() {
@@ -32,13 +33,8 @@ public class Game {
         }
         System.out.println("Vous avancez de " + lancerDe + " cases. Vous êtes maintenant sur la case " + position + "/" + LimitePlateau);
     }
-
-    public boolean Fin() {
+    public boolean Fin(){
         return position >= LimitePlateau;
-    }
-
-    public String toString() {
-        return personnage.toString() + "\n Position actuelle sur le plateau : " + position + "/" + LimitePlateau;
     }
 }
 

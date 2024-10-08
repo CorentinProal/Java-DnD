@@ -1,5 +1,6 @@
-package Personnage;
+package Personnage.classe;
 
+import Personnage.Personnage;
 import Personnage.equipement.EquipementDefensif;
 import Personnage.equipement.EquipmentOffensif;
 

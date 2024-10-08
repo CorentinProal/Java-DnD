@@ -3,7 +3,7 @@ package Personnage;
 import Personnage.equipement.EquipementDefensif;
 import Personnage.equipement.EquipmentOffensif;
 
-public abstract class Personnage { // Classe de base abstraite
+public class Personnage { // Classe de base abstraite
     protected String name;
     protected String type;
     protected int HP;
@@ -23,7 +23,9 @@ public abstract class Personnage { // Classe de base abstraite
         this.equipDefensif = equipDefensif;
     }
 
-    public abstract void parametreheros();
+    public void parametreheros() {
+
+    }
 
     public EquipmentOffensif getEquipementOffensif() {
         return equipOffensif;

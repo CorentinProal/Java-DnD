@@ -1,5 +1,8 @@
 package Prametre;
+
 import java.util.Scanner;
+import Personnage.classe.Guerrier;
+import Personnage.classe.Magicien;
 
 public class Menu {
     private Scanner sc;
@@ -64,13 +67,17 @@ public class Menu {
     private void CreationPersonnage() {
         System.out.print("C'est quoi ton petit nom ? : ");
         String playerName = sc.next();
-        Message("Tu joue quoi ? :");
+        Message("Tu joues quoi ? :");
         Message("1. Guerrier");
         Message("2. Magicien");
         int choixClasse = ChoixOption(2);
-        String playerClass = (choixClasse == 1) ? "Guerrier" : "Magicien";
 
-        game = new Game(playerName, playerClass);
+        if (choixClasse == 1) {
+            game = new Game(new Guerrier(playerName));
+        } else {
+            game = new Game(new Magicien(playerName));
+        }
+
         Message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
     }
 
@@ -121,6 +128,7 @@ public class Menu {
         }
     }
 }
+
 
 //Importation et déclaration de classe :
 //import java.util.Scanner; : Importation de la classe Scanner pour la lecture des entrées utilisateur.
