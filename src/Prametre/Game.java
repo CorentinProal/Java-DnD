@@ -5,14 +5,16 @@ import java.util.Scanner;
 import Prametre.Menu;
 import Prametre.Plateau.Case.Case;
 import Prametre.Plateau.Plateau;
+import java.util.Random; // Import the Random class
 
 public class Game {
     private Personnage personnage;
-    private int position;  // Position actuelle du joueur sur le plateau (1 à 4)
-    private final int LimitePlateau = 4;  // Fin du plateau
+    private int position;  // Position actuelle du joueur sur le plateau (1 à 64)
+    private final int LimitePlateau = 64;  // Fin du plateau
     private Scanner sc;
     private Menu menu;
     private Plateau plateau; // Ajout du plateau
+    private Random random = new Random(); // Initialize the Random object
 
     public Game() {
         this.sc = new Scanner(System.in);
@@ -43,10 +45,7 @@ public class Game {
         menu.Message("\n Bienvenue chez Kayangel !");
 
         while (continuer) {
-            menu.Message("1. Créer ton perso ");
-            menu.Message("2. Voir tes stats ");
-            menu.Message("3. Ça part ! ");
-            menu.Message("4. Fin du game ");
+            afficherMenu();
             int choix = ChoixOption(4);
 
             switch (choix) {
@@ -74,6 +73,13 @@ public class Game {
         }
     }
 
+    private void afficherMenu() {
+        menu.Message("1. Créer ton perso ");
+        menu.Message("2. Voir tes stats ");
+        menu.Message("3. Ça part ! ");
+        menu.Message("4. Fin du game ");
+    }
+
     int ChoixOption(int nombreOptions) {
         int choix;
         do {
@@ -84,9 +90,10 @@ public class Game {
     }
 
     public void Deplacement() throws PersonnageHorsPlateauException {
-        // Simuler un dé pipé qui renvoie toujours 1
-        int lancerDe = 1; 
-        position += lancerDe;
+        // Générer un nombre aléatoire entre 1 et 6
+        int lancerDe = random.nextInt(6) + 1; // nextInt(6) génère un nombre entre 0 et 5, donc on ajoute 1
+        System.out.println("Lancer de dé : " + lancerDe); // Afficher la valeur du dé
+        position += lancerDe; // Ajouter le résultat du dé à la position actuelle
         if (position > LimitePlateau) {
             throw new PersonnageHorsPlateauException("Tu es hors plateau !");
         }

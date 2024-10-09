@@ -5,4 +5,9 @@ public class CaseVide implements Case {
     public String getType() {
         return "vide";
     }
+
+    @Override
+    public String toString() {
+        return "Case vide";
+    }
 }
