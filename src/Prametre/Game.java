@@ -8,8 +8,8 @@ import Prametre.Plateau.Plateau;
 
 public class Game {
     private Personnage personnage;
-    private int position;  // Position actuelle du joueur sur le plateau (1 à 64)
-    private final int LimitePlateau = 64;  // Fin du plateau
+    private int position;  // Position actuelle du joueur sur le plateau (1 à 4)
+    private final int LimitePlateau = 4;  // Fin du plateau
     private Scanner sc;
     private Menu menu;
     private Plateau plateau; // Ajout du plateau
@@ -43,7 +43,6 @@ public class Game {
         menu.Message("\n Bienvenue chez Kayangel !");
 
         while (continuer) {
-
             menu.Message("1. Créer ton perso ");
             menu.Message("2. Voir tes stats ");
             menu.Message("3. Ça part ! ");
@@ -84,9 +83,9 @@ public class Game {
         return choix;
     }
 
-
     public void Deplacement() throws PersonnageHorsPlateauException {
-        int lancerDe = (int)(Math.random() * 6) + 1;
+        // Simuler un dé pipé qui renvoie toujours 1
+        int lancerDe = 1; 
         position += lancerDe;
         if (position > LimitePlateau) {
             throw new PersonnageHorsPlateauException("Tu es hors plateau !");
@@ -103,36 +102,12 @@ public class Game {
         System.out.println();
     }
 
-    public void Jouer() throws PersonnageHorsPlateauException {
-        Message("La partie commence !");
-        sc.nextLine();
+    public void jouer_un_tour() throws PersonnageHorsPlateauException {
+        Deplacement(); // Lancer le dé et déplacer le joueur
+        Case currentCase = plateau.getCase(position); // Obtenir la case actuelle
 
-        while (!Fin()) {
-            System.out.println("\nAppuyez sur [Entrée] pour lancer le dé...");
-
-            while (true) {
-                String input = sc.nextLine();
-                if (input.equals("") || input.equals(" ")) {
-                    break;
-                } else {
-                    System.out.println("Appuyez sur [Entrée] pour lancer le dé...");
-                }
-            }
-
-            Deplacement();
-
-            if (Fin()) {
-                Message("T'es trop fort le S t'as fini ! ");
-                Message("Tu rejoue ouuuu ? (1. Oui / 2. Nope)");
-                int choixRecommencer = ChoixOption(2);
-                if (choixRecommencer == 1) {
-                    setPosition(1);
-                } else {
-                    Message("Merci d'avoir joué !" + "\n T'es un GOAT");
-                    break;
-                }
-            }
-        }
+        // Logique d'interaction avec la case
+        System.out.println(currentCase.toString()); // Afficher le message de la case
     }
 
     private void InfosPersonnage() {
@@ -148,29 +123,7 @@ public class Game {
             Message("Aucun personnage n'a été créé.");
         }
     }
-
-    public void jouer_un_tour() throws PersonnageHorsPlateauException {
-        Deplacement(); // Lancer le dé et déplacer le joueur
-        Case currentCase = plateau.getCase(position);
-
-        // Logique d'interaction avec la case
-        switch (currentCase.getType()) {
-            case "ennemi":
-                menu.Message("Vous êtes tombé sur un ennemi !");
-                // Logique de combat ici
-                break;
-            case "bonus":
-                menu.Message("Vous avez trouvé un bonus !");
-                // Logique pour ajouter le bonus à l'équipement
-                break;
-            case "vide":
-                menu.Message("Vous êtes sur une case vide.");
-                break;
-        }
-        // Mettre à jour le statut du jeu si nécessaire
-    }
 }
-
 
 //Attributs de la classe :
 //private Personnage.Personnage personnage; : Représente le personnage du joueur.

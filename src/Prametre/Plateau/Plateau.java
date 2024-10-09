@@ -1,6 +1,10 @@
-package Prametre;
+package Prametre.Plateau;
 
 import Prametre.Plateau.Case.Case;
+import Prametre.Plateau.Case.CaseVide;
+import Prametre.Plateau.Case.CaseEnnemi;
+import Prametre.Plateau.Case.Arme;
+import Prametre.Plateau.Case.Potion;
 
 import java.util.ArrayList;
 
@@ -9,17 +13,15 @@ public class Plateau {
 
     public Plateau() {
         cases = new ArrayList<>();
-        // Initialiser le plateau avec des cases
-        for (int i = 0; i < 64; i++) {
-            cases.add(new Prametre.CaseVide()); // Exemple d'initialisation avec des cases vides
-        }
-        // Vous pouvez ajouter des ennemis ou des bonus à des positions spécifiques
-        cases.set(5, new Prametre.CaseEnnemi()); // Exemple d'ajout d'un ennemi à la case 6
-        cases.set(10, new Prametre.CaseBonus());  // Exemple d'ajout d'un bonus à la case 11
+        // Initialiser le plateau avec 4 cases
+        cases.add(new CaseVide()); // Case 1 : vide
+        cases.add(new CaseEnnemi()); // Case 2 : ennemi
+        cases.add(new Arme()); // Case 3 : arme
+        cases.add(new Potion()); // Case 4 : potion
     }
 
     public Case getCase(int position) {
-        return cases.get(position - 1); // Position 1 à 64
+        return cases.get(position - 1); // Position 1 à 4
     }
 
     // Méthodes pour gérer le plateau
