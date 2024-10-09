@@ -3,6 +3,8 @@ package Prametre;
 import Personnage.Personnage;
 import java.util.Scanner;
 import Prametre.Menu;
+import Prametre.Plateau.Case.Case;
+import Prametre.Plateau.Plateau;
 
 public class Game {
     private Personnage personnage;
@@ -10,10 +12,13 @@ public class Game {
     private final int LimitePlateau = 64;  // Fin du plateau
     private Scanner sc;
     private Menu menu;
+    private Plateau plateau; // Ajout du plateau
 
     public Game() {
         this.sc = new Scanner(System.in);
         this.menu = new Menu();
+        this.plateau = new Plateau(); // Initialisation du plateau
+        this.position = 1; // Position de départ
     }
 
     public void setPersonnage(Personnage personnage) {
@@ -54,7 +59,7 @@ public class Game {
                     break;
                 case 3:
                     if (personnage != null) {
-                        Jouer(); // Appel de la méthode Jouer() de Game
+                        jouer_un_tour(); // Appel de la méthode jouer_un_tour()
                     } else {
                         menu.Message("Il te faut un perso.");
                     }
@@ -142,6 +147,27 @@ public class Game {
         } else {
             Message("Aucun personnage n'a été créé.");
         }
+    }
+
+    public void jouer_un_tour() throws PersonnageHorsPlateauException {
+        Deplacement(); // Lancer le dé et déplacer le joueur
+        Case currentCase = plateau.getCase(position);
+
+        // Logique d'interaction avec la case
+        switch (currentCase.getType()) {
+            case "ennemi":
+                menu.Message("Vous êtes tombé sur un ennemi !");
+                // Logique de combat ici
+                break;
+            case "bonus":
+                menu.Message("Vous avez trouvé un bonus !");
+                // Logique pour ajouter le bonus à l'équipement
+                break;
+            case "vide":
+                menu.Message("Vous êtes sur une case vide.");
+                break;
+        }
+        // Mettre à jour le statut du jeu si nécessaire
     }
 }
 
