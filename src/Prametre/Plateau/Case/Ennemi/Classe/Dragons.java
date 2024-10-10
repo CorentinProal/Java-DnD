@@ -5,7 +5,7 @@ import Prametre.Plateau.Case.Ennemi.Ennemi;
 
 public class Dragons extends Ennemi {
     public Dragons() {
-        super("Dragon", 18, 22); // Nom, points de vie, force
+        super("Dragon", 15, 4); // Nom, points de vie, force
     }
 
     @Override

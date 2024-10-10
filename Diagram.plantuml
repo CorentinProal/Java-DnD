@@ -1,0 +1,152 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Arme {
+  + Arme(): 
+}
+class Arme {
+  + Arme(): 
+  + toString(): String
+   type: String
+}
+class Bouclier {
+  + Bouclier(): 
+}
+interface Case << interface >> {
+   type: String
+}
+class CaseBonus {
+  + CaseBonus(): 
+   type: String
+}
+class CaseEnnemi {
+  + CaseEnnemi(): 
+  - ennemi: Ennemi
+  + toString(): String
+   ennemi: Ennemi
+   type: String
+}
+class CaseVide {
+  + CaseVide(): 
+  + toString(): String
+   type: String
+}
+class Dragons {
+  + Dragons(): 
+  + attaquer(): String
+}
+class Ennemi {
+  + Ennemi(String, int, int): 
+  # nom: String
+  # pointsDeVie: int
+  # force: int
+  + attaquer(): String
+   nom: String
+   pointsDeVie: int
+   force: int
+}
+class EquipementDefensif {
+  + EquipementDefensif(String): 
+  + EquipementDefensif(): 
+  + EquipementDefensif(String, String): 
+  - name: String
+  - type: String
+  - DEFLevel: int
+  + toString(): String
+   name: String
+   DEFLevel: int
+   type: String
+}
+class EquipmentOffensif {
+  + EquipmentOffensif(String): 
+  + EquipmentOffensif(String, String): 
+  + EquipmentOffensif(): 
+  - name: String
+  - type: String
+  - ATQLevel: int
+  + toString(): String
+   name: String
+   type: String
+   ATQLevel: int
+}
+class Game {
+  + Game(): 
+  - personnage: Personnage
+  - position: int
+  + Message(String): void
+  + start(): void
+  ~ ChoixOption(int): int
+  + Deplacement(): void
+  - InfosPersonnage(): void
+  + jouer_un_tour(): void
+  - afficherMenu(): void
+  + Fin(): boolean
+   personnage: Personnage
+   position: int
+}
+class Goblin {
+  + Goblin(): 
+  + attaquer(): String
+}
+class Guerrier {
+  + Guerrier(String): 
+  + parametreheros(): void
+}
+class Magicien {
+  + Magicien(String): 
+  + parametreheros(): void
+}
+class Main {
+  + Main(): 
+  + main(String[]): void
+}
+class Menu {
+  + Menu(): 
+  + Message(String): void
+  + CreationPersonnage(Game): void
+}
+class Personnage {
+  + Personnage(String, String): 
+  + toString(): String
+  + parametreheros(): void
+  # recuperationstuff(int, int, EquipmentOffensif, EquipementDefensif): void
+   equipementDefensif: EquipementDefensif
+   equipementOffensif: EquipmentOffensif
+}
+class PersonnageHorsPlateauException {
+  + PersonnageHorsPlateauException(String): 
+}
+class Philtre {
+  + Philtre(): 
+}
+class Plateau {
+  + Plateau(): 
+  + getCase(int): Case
+}
+class Potion {
+  + Potion(String, int): 
+  + utiliser(): int
+  + toString(): String
+   type: String
+}
+class Sort {
+  + Sort(): 
+}
+
+Arme                            -[#008200,dashed]-^  Case                           
+Arme                            -[#000082,plain]-^  EquipmentOffensif              
+Bouclier                        -[#000082,plain]-^  EquipementDefensif             
+CaseBonus                       -[#008200,dashed]-^  Case                           
+CaseEnnemi                      -[#008200,dashed]-^  Case                           
+CaseVide                        -[#008200,dashed]-^  Case                           
+Dragons                         -[#000082,plain]-^  Ennemi                         
+Goblin                          -[#000082,plain]-^  Ennemi                         
+Guerrier                        -[#000082,plain]-^  Personnage                     
+Magicien                        -[#000082,plain]-^  Personnage                     
+Philtre                         -[#000082,plain]-^  EquipementDefensif             
+Potion                          -[#008200,dashed]-^  Case                           
+Sort                            -[#000082,plain]-^  EquipmentOffensif              
+@enduml

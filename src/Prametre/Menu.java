@@ -11,18 +11,18 @@ public class Menu {
         sc = new Scanner(System.in);
     }
 
-    public void Message(String message) {
+    public void message(String message) {
         System.out.println(message);
         System.out.println();
     }
 
-    public void CreationPersonnage(Game game) {
+    public void creationPersonnage(Game game) {
         System.out.print("C'est quoi ton petit nom ? : ");
         String playerName = sc.next();
-        Message("Tu joues quoi ? :");
-        Message("1. Guerrier");
-        Message("2. Magicien");
-        int choixClasse = game.ChoixOption(2); // Appel à la méthode ChoixOption de Game
+        message("Tu joues quoi ? :");
+        message("1. Guerrier");
+        message("2. Magicien");
+        int choixClasse = game.choixOption(2);
 
         if (choixClasse == 1) {
             game.setPersonnage(new Guerrier(playerName));
@@ -30,9 +30,25 @@ public class Menu {
             game.setPersonnage(new Magicien(playerName));
         }
 
-        Message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
+        message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
     }
 }
+
+/////////////////// V2 ///////////////////
+
+
+
+
+/////////////////// V2 ///////////////////
+
+
+
+
+
+
+
+
+/////////////////// V1 ///////////////////
 
 //Importation et déclaration de classe :
 //import java.util.Scanner; : Importation de la classe Scanner pour la lecture des entrées utilisateur.
@@ -49,7 +65,7 @@ public class Menu {
 
 
 //Méthode pour afficher des messages :
-//public void Message(String message) : Affiche un message à l'utilisateur suivi d'une ligne vide.
+//public void message(String message) : Affiche un message à l'utilisateur suivi d'une ligne vide.
 
 
 //Méthode principale du menu :
@@ -76,3 +92,5 @@ public class Menu {
 //Permet au joueur de lancer le dé en appuyant sur la barre d'espace.
 //Gère le déplacement du personnage sur le plateau et vérifie si le jeu est terminé.
 //Propose la possibilité de recommencer la partie ou de quitter à la fin
+
+/////////////////// V1 ///////////////////

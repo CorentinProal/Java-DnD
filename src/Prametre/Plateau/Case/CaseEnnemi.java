@@ -2,6 +2,7 @@ package Prametre.Plateau.Case;
 
 import Prametre.Plateau.Case.Ennemi.Classe.Dragons;
 import Prametre.Plateau.Case.Ennemi.Classe.Goblin;
+import Prametre.Plateau.Case.Ennemi.Classe.Sorcier;
 import Prametre.Plateau.Case.Ennemi.Ennemi;
 
 public class CaseEnnemi implements Case {
@@ -10,6 +11,7 @@ public class CaseEnnemi implements Case {
     public CaseEnnemi() {
         this.ennemi = new Dragons();
         this.ennemi = new Goblin();
+        this.ennemi = new Sorcier();
     }
 
     public Ennemi getEnnemi() {

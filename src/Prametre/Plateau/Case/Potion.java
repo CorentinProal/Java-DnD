@@ -2,8 +2,8 @@
 package Prametre.Plateau.Case;
 
 public class Potion implements Case {
-    private String nom; // Nom de la potion
-    private int effet;  // Effet de la potion (par exemple, points de défense ou de vie)
+    private String nom;
+    private int effet;
 
     public Potion(String nom, int effet) {
         this.nom = nom;

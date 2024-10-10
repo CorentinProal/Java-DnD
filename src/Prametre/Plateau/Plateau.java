@@ -12,33 +12,30 @@ import java.util.List;
 
 public class Plateau {
     private ArrayList<Case> cases;
-    private static final int TAILLE_PLATEAU = 64; // Taille du plateau
+    private static final int TAILLE_PLATEAU = 64;
 
     public Plateau() {
-        cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide())); // Initialiser toutes les cases comme vides
+        cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
 
-        // Créer des listes d'objets à placer
+
         List<Case> objets = new ArrayList<>();
         for (int i = 0; i < 10; i++) { 
-            objets.add(new CaseEnnemi()); // 10 ennemis
+            objets.add(new CaseEnnemi());
         }
         for (int i = 0; i < 10; i++) { 
-            objets.add(new Arme()); // 10 armes
+            objets.add(new Arme());
         }
         for (int i = 0; i < 10; i++) { 
-            objets.add(new Potion("Potion " + (i + 1), 10)); // 10 potions
+            objets.add(new Potion("Potion " + (i + 1), 10));
         }
         
-        // Calculer le nombre de cases vides nécessaires
-        int casesVides = TAILLE_PLATEAU - objets.size(); // 64 - 30 = 34 cases vides
+
+        int casesVides = TAILLE_PLATEAU - objets.size();
         for (int i = 0; i < casesVides; i++) {
-            objets.add(new CaseVide()); // Ajouter les cases vides restantes
+            objets.add(new CaseVide());
         }
 
-        // Mélanger les objets
         Collections.shuffle(objets);
-
-        // Placer les objets dans les cases
         for (int i = 0; i < objets.size(); i++) {
             cases.set(i, objets.get(i));
         }

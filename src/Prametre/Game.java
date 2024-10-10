@@ -2,25 +2,24 @@ package Prametre;
 
 import Personnage.Personnage;
 import java.util.Scanner;
-import Prametre.Menu;
 import Prametre.Plateau.Case.Case;
 import Prametre.Plateau.Plateau;
-import java.util.Random; // Import the Random class
+import java.util.Random;
 
 public class Game {
     private Personnage personnage;
-    private int position;  // Position actuelle du joueur sur le plateau (1 à 64)
-    private final int LimitePlateau = 64;  // Fin du plateau
+    private int position;
+    private final int LimitePlateau = 64;
     private Scanner sc;
     private Menu menu;
-    private Plateau plateau; // Ajout du plateau
-    private Random random = new Random(); // Initialize the Random object
+    private Plateau plateau;
+    private Random random = new Random();
 
     public Game() {
         this.sc = new Scanner(System.in);
         this.menu = new Menu();
-        this.plateau = new Plateau(); // Initialisation du plateau
-        this.position = 1; // Position de départ
+        this.plateau = new Plateau();
+        this.position = 1;
     }
 
     public void setPersonnage(Personnage personnage) {
@@ -42,45 +41,45 @@ public class Game {
     public void start() throws PersonnageHorsPlateauException {
         boolean continuer = true;
 
-        menu.Message("\n Bienvenue chez Kayangel !");
+        menu.message("\n Bienvenue chez Kayangel !");
 
         while (continuer) {
             afficherMenu();
-            int choix = ChoixOption(4);
+            int choix = choixOption(4);
 
             switch (choix) {
                 case 1:
-                    menu.CreationPersonnage(this);
+                    menu.creationPersonnage(this);
                     break;
                 case 2:
-                    InfosPersonnage();
+                    infosPersonnage();
                     break;
                 case 3:
                     if (personnage != null) {
-                        jouer_un_tour(); // Appel de la méthode jouer_un_tour()
+                        jouerUnTour();
                     } else {
-                        menu.Message("Il te faut un perso.");
+                        menu.message("Il te faut un perso.");
                     }
                     break;
                 case 4:
-                    menu.Message("Merci d'avoir joué !" + "\n T'es un GOAT");
+                    menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
                     continuer = false;
                     break;
                 default:
-                    menu.Message("Option invalide.");
+                    menu.message("Option invalide.");
                     break;
             }
         }
     }
 
     private void afficherMenu() {
-        menu.Message("1. Créer ton perso ");
-        menu.Message("2. Voir tes stats ");
-        menu.Message("3. Ça part ! ");
-        menu.Message("4. Fin du game ");
+        menu.message("1. Créer ton perso ");
+        menu.message("2. Voir tes stats ");
+        menu.message("3. Ça part ! ");
+        menu.message("4. fin du game ");
     }
 
-    int ChoixOption(int nombreOptions) {
+    int choixOption(int nombreOptions) {
         int choix;
         do {
             System.out.print("Choisissez une option (1-" + nombreOptions + "): ");
@@ -89,37 +88,29 @@ public class Game {
         return choix;
     }
 
-    public void Deplacement() throws PersonnageHorsPlateauException {
-        // Générer un nombre aléatoire entre 1 et 6
-        int lancerDe = random.nextInt(6) + 1; // nextInt(6) génère un nombre entre 0 et 5, donc on ajoute 1
-        System.out.println("Lancer de dé : " + lancerDe); // Afficher la valeur du dé
-        position += lancerDe; // Ajouter le résultat du dé à la position actuelle
+    public boolean jouerUnTour() throws PersonnageHorsPlateauException {
+        int lancerDe = random.nextInt(6) + 1;
+        System.out.println("Lancer de dé : " + lancerDe);
+        position += lancerDe;
         if (position > LimitePlateau) {
             throw new PersonnageHorsPlateauException("Tu es hors plateau !");
         }
         System.out.println("Vous avancez de " + lancerDe + " cases. Vous êtes maintenant sur la case " + position + "/" + LimitePlateau);
+        
+        Case currentCase = plateau.getCase(position);
+        System.out.println(currentCase.toString());
+
+        return position >= LimitePlateau; // Retourne vrai si le jeu est fini
     }
 
-    public boolean Fin() {
-        return position >= LimitePlateau;
-    }
-
-    public void Message(String message) {
+    public void message(String message) {
         System.out.println(message);
         System.out.println();
     }
 
-    public void jouer_un_tour() throws PersonnageHorsPlateauException {
-        Deplacement(); // Lancer le dé et déplacer le joueur
-        Case currentCase = plateau.getCase(position); // Obtenir la case actuelle
-
-        // Logique d'interaction avec la case
-        System.out.println(currentCase.toString()); // Afficher le message de la case
-    }
-
-    private void InfosPersonnage() {
+    private void infosPersonnage() {
         if (personnage != null) {
-            Message(personnage.toString());
+            message(personnage.toString());
             String equipOffensif = personnage.getEquipementOffensif().toString();
             System.out.println("Equipement offensif : " + equipOffensif);
             System.out.println("");
@@ -127,7 +118,7 @@ public class Game {
             System.out.println("Equipement défensif : " + equipDefensif);
             System.out.println();
         } else {
-            Message("Aucun personnage n'a été créé.");
+            message("Aucun personnage n'a été créé.");
         }
     }
 }
@@ -165,3 +156,14 @@ public class Game {
 
 //Méthode de représentation en chaîne :
 //public String toString() : Renvoie une représentation textuelle de l'état actuel du jeu, incluant les détails du personnage et sa position sur le plateau.
+
+
+
+// Cette méthode simule le déroulement d'un tour de jeu.
+//- Elle commence par appeler la méthode Deplacement(), qui gère le mouvement
+//   du personnage sur le plateau.
+// - Ensuite, elle récupère la case actuelle du plateau sur laquelle se trouve
+//   le personnage, en utilisant sa position actuelle.
+// - Enfin, elle affiche les informations de la case actuelle à la console
+//   en appelant la méthode toString() de l'objet Case.
+// @throws PersonnageHorsPlateauException si le personnage sort des limites du plateau

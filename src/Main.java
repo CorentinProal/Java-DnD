@@ -38,8 +38,8 @@ public class Main {
 //        | + start()            |
 //        | + ChoixOption(int): int |
 //        | + Deplacement()      |
-//        | + Fin(): boolean     |
-//        | + Message(String)    |
+//        | + fin(): boolean     |
+//        | + message(String)    |
 //        | + Jouer()           |
 //        | + InfosPersonnage()  |
 //        +---------------------+
@@ -51,7 +51,7 @@ public class Main {
 //        +---------------------+
 //        | - sc: Scanner       |
 //        +---------------------+
-//        | + Message(String)   |
+//        | + message(String)   |
 //        | + CreationPersonnage(Game) |
 //        +---------------------+
 //        |
@@ -172,8 +172,8 @@ public class Main {
 //        |+ start()                    |
 //        |+ ChoixOption(int): int      |
 //        |+ Deplacement()              |
-//        |+ Fin(): boolean             |
-//        |+ Message(String)            |
+//        |+ fin(): boolean             |
+//        |+ message(String)            |
 //        |+ Jouer()                    |
 //        |+ InfosPersonnage()          |
 //        `-----------------------------'
@@ -186,7 +186,7 @@ public class Main {
 //        |Menu                      |  |- HP: int                                    |
 //        |--------------------------|  |- ATQ: int                                   |
 //        |- sc: Scanner             |  |- equipOffensif: EquipmentOffensif           |
-//        |+ Message(String)         |  |- equipDefensif: EquipementDefensif          |
+//        |+ message(String)         |  |- equipDefensif: EquipementDefensif          |
 //        |+ CreationPersonnage(Game)|  |+ getEquipementOffensif(): EquipmentOffensif |
 //        `--------------------------'  |+ getEquipementDefensif(): EquipementDefensif|
 //                                      |+ toString(): String                         |
