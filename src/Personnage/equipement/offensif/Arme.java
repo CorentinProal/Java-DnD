@@ -5,6 +5,6 @@ public class Arme extends EquipmentOffensif {
         super();
         this.setName("Coup uppercut");
         this.setType("Arme");
-        this.setATQLevel(5);
+        this.setATQLevel(2);
     }
 }

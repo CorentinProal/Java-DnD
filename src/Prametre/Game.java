@@ -43,39 +43,52 @@ public class Game {
         menu.message("\n Bienvenue chez Kayangel !");
 
         while (continuer) {
-            afficherMenu();
-            int choix = choixOption(4);
+            if (personnage == null) {
+                // Show only character creation and quit options
+                menu.message("1. Créer ton perso ");
+                menu.message("2. Quitter le jeu ");
+                int choix = choixOption(2);
 
-            switch (choix) {
-                case 1:
-                    menu.creationPersonnage(this);
-                    break;
-                case 2:
-                    infosPersonnage();
-                    break;
-                case 3:
-                    if (personnage != null) {
-                        jouerUnTour();
-                    } else {
-                        menu.message("Il te faut un perso.");
-                    }
-                    break;
-                case 4:
-                    menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
-                    continuer = false;
-                    break;
-                default:
-                    menu.message("Option invalide.");
-                    break;
+                switch (choix) {
+                    case 1:
+                        menu.creationPersonnage(this);
+                        break;
+                    case 2:
+                        menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
+                        continuer = false;
+                        break;
+                    default:
+                        menu.message("Option invalide.");
+                        break;
+                }
+            } else {
+                // Show full menu after character creation
+                afficherMenu();
+                int choix = choixOption(4);
+
+                switch (choix) {
+                    case 1:
+                        infosPersonnage();
+                        break;
+                    case 2:
+                        jouerUnTour(); // Affichera la case actuelle après le lancer de dé
+                        break;
+                    case 3:
+                        menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
+                        continuer = false;
+                        break;
+                    default:
+                        menu.message("Option invalide.");
+                        break;
+                }
             }
         }
     }
 
     private void afficherMenu() {
-        menu.message("1. Créer ton perso ");
-        menu.message("2. Voir tes stats ");
-        menu.message("3. Ça part ! ");
-        menu.message("4. fin du game ");
+        menu.message("1. Voir tes stats ");
+        menu.message("2. Ça part ! ");
+        menu.message("3. Quitter le jeu ");
     }
 
     int choixOption(int nombreOptions) {
@@ -129,14 +142,14 @@ public class Game {
     private void infosPersonnage() {
         if (personnage != null) {
             message(personnage.toString());
-            String equipOffensif = personnage.getEquipementOffensif().toString();
-            System.out.println("Equipement offensif : " + equipOffensif);
-            System.out.println("");
-            String equipDefensif = personnage.getEquipementDefensif().toString();
-            System.out.println("Equipement défensif : " + equipDefensif);
-            System.out.println();
         } else {
             message("Aucun personnage n'a été créé.");
+        }
+    }
+
+    public void afficherPlateau() {
+        for (int i = 1; i <= Plateau.TAILLE_PLATEAU; i++) {
+            System.out.println("Case " + i + ": " + plateau.getCase(i).toString());
         }
     }
 }

@@ -1,5 +1,7 @@
 // src/Prametre/Plateau/Case/Potion.java
-package Prametre.Plateau.Case;
+package Prametre.Plateau.Case.Equipement.Defensif;
+
+import Prametre.Plateau.Case.Case;
 
 public class Potion implements Case {
     private String nom;

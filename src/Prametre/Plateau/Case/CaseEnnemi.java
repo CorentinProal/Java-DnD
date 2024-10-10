@@ -1,15 +1,15 @@
 package Prametre.Plateau.Case;
 
-import Prametre.Plateau.Case.Ennemi.Classe.Dragons;
-import Prametre.Plateau.Case.Ennemi.Classe.Goblin;
-import Prametre.Plateau.Case.Ennemi.Classe.Sorcier;
 import Prametre.Plateau.Case.Ennemi.Ennemi;
+import Prametre.Plateau.Case.Ennemi.Dragon;
+import Prametre.Plateau.Case.Ennemi.Goblin;
+import Prametre.Plateau.Case.Ennemi.Sorcier;
 
 public class CaseEnnemi implements Case {
     private Ennemi ennemi;
 
     public CaseEnnemi() {
-        this.ennemi = new Dragons();
+        this.ennemi = new Dragon();
         this.ennemi = new Goblin();
         this.ennemi = new Sorcier();
     }

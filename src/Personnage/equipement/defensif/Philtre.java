@@ -5,6 +5,6 @@ public class Philtre extends EquipementDefensif {
         super();
         this.setName("Esprit volatil");
         this.setType("Philtre");
-        this.setDEFLevel(10);
+        this.setDEFLevel(4);
     }
 }

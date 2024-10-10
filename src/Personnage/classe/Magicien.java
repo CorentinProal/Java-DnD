@@ -1,7 +1,6 @@
 package Personnage.classe;
 import Personnage.Personnage;
-import Personnage.equipement.defensif.Philtre;
-import Personnage.equipement.offensif.Sort;
+
 
 public class Magicien extends Personnage {
     public Magicien(String name) {
@@ -11,6 +10,6 @@ public class Magicien extends Personnage {
 
     @Override
     public void parametreheros() {
-        this.recuperationstuff(6, 15, new Sort(), new Philtre());
+        this.recuperationstuff(6, 10);
     }
 }

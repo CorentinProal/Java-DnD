@@ -5,6 +5,6 @@ public class Sort extends EquipmentOffensif {
         super();
         this.setName("Rayon Eternel");
         this.setType("Sort");
-        this.setATQLevel(17);
+        this.setATQLevel(4);
     }
 }

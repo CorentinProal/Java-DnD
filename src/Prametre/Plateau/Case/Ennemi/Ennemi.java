@@ -1,7 +1,8 @@
-
 package Prametre.Plateau.Case.Ennemi;
 
-public abstract class Ennemi {
+import Prametre.Plateau.Case.Case;
+
+public abstract class Ennemi implements Case {
     protected String nom;
     protected int pointsDeVie;
     protected int force;
@@ -20,9 +21,6 @@ public abstract class Ennemi {
         return pointsDeVie;
     }
 
-    public int getForce() {
-        return force;
-    }
-
-    public abstract String attaquer();
+    @Override
+    public abstract String toString();
 }

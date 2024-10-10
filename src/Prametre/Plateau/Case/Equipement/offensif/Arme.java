@@ -1,4 +1,6 @@
-package Prametre.Plateau.Case;
+package Prametre.Plateau.Case.Equipement.offensif;
+
+import Prametre.Plateau.Case.Case;
 
 public class Arme implements Case {
     @Override
