@@ -41,40 +41,21 @@ public abstract class Personnage { // Classe de base abstraite
 }
 
 
-//Importation :
-// import java.util.*; : Importation de la bibliothèque Java Util pour utiliser la classe Objects.
-
-
-//Déclaration de la classe :
-//public class Personnage.Personnage : Déclaration de la classe Personnage.Personnage, qui représente un personnage dans le jeu.
-
-
-//Attributs de la classe :
-//private String name; : Nom du personnage.
-//private String type; : Type du personnage (par exemple, Magicien ou Guerrier).
-//private int HP; : Points de vie du personnage.
-//private int ATQ; : Points d'attaque du personnage.
-//private Personnage.equipement.offensif.EquipmentOffensif equipOffensif; : Équipement offensif du personnage.
-//private Personnage.equipement.defensif.EquipementDefensif equipDefensif; : Équipement défensif du personnage.
-
-
-//Constructeur :
-//public Personnage.Personnage(String name, String type) :
-//Initialise le personnage avec un nom et un type.
-//Détermine les caractéristiques (HP et ATQ) en fonction du type de personnage.
-//Pour un Magicien : 6 HP et 15 ATQ avec un sceptre et un sac.
-//Pour un Guerrier : 10 HP et 10 ATQ avec une massue et une armure.
-
-
-//Ajustement des attributs :
-//Les points de vie et d'attaque sont augmentés par les niveaux de défense et d'attaque de l'équipement respectif (equipDefensif.getDEFLevel() et equipOffensif.getATQLevel()).
-
-
-//Méthodes d'accès (Getters) :
-//public Personnage.equipement.offensif.EquipmentOffensif getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
-//public Personnage.equipement.defensif.EquipementDefensif getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
-
-
-//Méthode de représentation en chaîne :
-//public String toString() :
-//Renvoie une représentation textuelle des attributs du personnage, incluant son nom, son type, ses HP et son ATQ. Utilise des emojis pour une meilleure présentation visuelle.
+// Classe Personnage : Classe abstraite représentant un personnage dans le jeu.
+// Attributs :
+// - String name : Nom du personnage.
+// - String type : Type du personnage (Guerrier ou Magicien).
+// - int HP : Points de vie du personnage.
+// - int ATQ : Points d'attaque du personnage.
+// - EquipmentOffensif equipOffensif : Équipement offensif du personnage.
+// - EquipementDefensif equipDefensif : Équipement défensif du personnage.
+//
+// Constructeur :
+// - Personnage(String name, String type) : Initialise le personnage avec un nom et un type.
+//
+// Méthodes :
+// - recuperationstuff(int hp, int atq, EquipmentOffensif equipOffensif, EquipementDefensif equipDefensif) : Met à jour les attributs du personnage.
+// - parametreheros() : Méthode vide pour définir les paramètres du héros.
+// - getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
+// - getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
+// - toString() : Renvoie une représentation textuelle des attributs du personnage.
