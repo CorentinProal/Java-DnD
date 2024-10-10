@@ -2,7 +2,8 @@ package Prametre.Plateau.Case.Ennemi;
 
 public class Goblin extends Ennemi {
     public Goblin() {
-        super("Goblin", 6, 1); // Nom, points de vie, force
+        super("Goblin", 6, 1);
+
     }
 
     @Override

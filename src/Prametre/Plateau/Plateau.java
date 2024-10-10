@@ -23,7 +23,7 @@ public class Plateau {
         cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
 
         List<Case> objets = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 4; i++) {
             objets.add(new Dragon());
         }
         for (int i = 0; i < 5; i++) {
@@ -35,20 +35,20 @@ public class Plateau {
         for (int i = 0; i < 3; i++) {
             objets.add(new Massue());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             objets.add(new Epee());
         }
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 3; i++) {
             objets.add(new Eclair());
         }
-        for (int i = 0; i < 5; i++) {
-            objets.add(new PotionStandard("Potion Standard " + (i + 1), 10));
+        for (int i = 0; i < 4; i++) {
+            objets.add(new PotionStandard("Potion Standard " + (i + 1), 2));
         }
-        for (int i = 0; i < 3; i++) {
-            objets.add(new GrandePotion("Grande Potion " + (i + 1), 20));
+        for (int i = 0; i < 1; i++) {
+            objets.add(new GrandePotion("Grande Potion " + (i + 1), 5));
         }
         for (int i = 0; i < 2; i++) {
-            objets.add(new BouleDeFeu("Boule de Feu " + (i + 1), 15));
+            objets.add(new BouleDeFeu("Boule de Feu " + (i + 1), 10));
         }
 
         int casesVides = TAILLE_PLATEAU - objets.size();

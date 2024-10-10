@@ -2,7 +2,7 @@ package Prametre.Plateau.Case.Ennemi;
 
 public class Sorcier extends Ennemi {
     public Sorcier() {
-        super("Sorcier", 9, 2); // Nom, points de vie, force
+        super("Sorcier", 9, 2);
     }
 
     @Override

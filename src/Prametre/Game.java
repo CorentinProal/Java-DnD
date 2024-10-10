@@ -29,14 +29,6 @@ public class Game {
         return personnage;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
     public void start() throws PersonnageHorsPlateauException {
         boolean continuer = true;
 
@@ -44,7 +36,6 @@ public class Game {
 
         while (continuer) {
             if (personnage == null) {
-                // Show only character creation and quit options
                 menu.message("1. Créer ton perso ");
                 menu.message("2. Quitter le jeu ");
                 int choix = choixOption(2);
@@ -62,16 +53,15 @@ public class Game {
                         break;
                 }
             } else {
-                // Show full menu after character creation
-                afficherMenu();
+                menu.afficherMenu();
                 int choix = choixOption(4);
 
                 switch (choix) {
                     case 1:
-                        infosPersonnage();
+                        menu.afficherInfosPersonnage(personnage);
                         break;
                     case 2:
-                        jouerUnTour(); // Affichera la case actuelle après le lancer de dé
+                        jouerUnTour();
                         break;
                     case 3:
                         menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
@@ -83,12 +73,6 @@ public class Game {
                 }
             }
         }
-    }
-
-    private void afficherMenu() {
-        menu.message("1. Voir tes stats ");
-        menu.message("2. Ça part ! ");
-        menu.message("3. Quitter le jeu ");
     }
 
     int choixOption(int nombreOptions) {
@@ -132,25 +116,6 @@ public class Game {
     private void afficherCaseActuelle() {
         Case currentCase = plateau.getCase(position);
         System.out.println(currentCase.toString());
-    }
-
-    public void message(String message) {
-        System.out.println(message);
-        System.out.println();
-    }
-
-    private void infosPersonnage() {
-        if (personnage != null) {
-            message(personnage.toString());
-        } else {
-            message("Aucun personnage n'a été créé.");
-        }
-    }
-
-    public void afficherPlateau() {
-        for (int i = 1; i <= Plateau.TAILLE_PLATEAU; i++) {
-            System.out.println("Case " + i + ": " + plateau.getCase(i).toString());
-        }
     }
 }
 
