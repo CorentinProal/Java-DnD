@@ -85,32 +85,7 @@ public class Game {
     }
 
     public boolean jouerUnTour() throws PersonnageHorsPlateauException {
-        int lancerDe = lancerDe();
-        System.out.println("Lancer de dé : " + lancerDe);
-        
-        position += lancerDe;
-        verifierPosition();
-
-        System.out.println("Vous avancez de " + lancerDe + " cases. Vous êtes maintenant sur la case " + position + "/" + Plateau.TAILLE_PLATEAU);
-        
-        afficherCaseActuelle();
-
-        if (position >= Plateau.TAILLE_PLATEAU) {
-            System.out.println("Merci d'avoir joué !" + "\n T'es un GOAT");
-            return true;
-        }
-
-        return false;
-    }
-
-    private int lancerDe() {
-        return random.nextInt(6) + 1;
-    }
-
-    private void verifierPosition() throws PersonnageHorsPlateauException {
-        if (position > Plateau.TAILLE_PLATEAU) {
-            throw new PersonnageHorsPlateauException("Tu es hors plateau !");
-        }
+        return plateau.jouerUnTour(position);
     }
 
     private void afficherCaseActuelle() {

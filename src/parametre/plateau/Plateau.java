@@ -1,4 +1,5 @@
 package parametre.plateau;
+import parametre.PersonnageHorsPlateauException;
 import parametre.plateau.cases.Case;
 import parametre.plateau.cases.CaseVide;
 import parametre.plateau.cases.ennemi.Dragon;
@@ -14,6 +15,7 @@ import parametre.plateau.cases.equipement.defensif.GrandePotion;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Plateau {
     public static final int TAILLE_PLATEAU = 64;
@@ -47,11 +49,11 @@ public class Plateau {
 
         }
         for (int i = 0; i < 2; i++) {
-            objets.add(new BouleDeFeu());
+            objets.add((Case) new BouleDeFeu());
         }
 
         for (int i = 0; i < 3; i++) {
-            objets.add(new Eclair());
+            objets.add((Case) new Eclair());
         }
 
         int casesVides = TAILLE_PLATEAU - objets.size();
@@ -68,8 +70,41 @@ public class Plateau {
     public Case getCase(int position) {
         return cases.get(position - 1);
     }
-}
 
+    public boolean jouerUnTour(int position) throws PersonnageHorsPlateauException {
+        int lancerDe = lancerDe();
+        System.out.println("Lancer de dé : " + lancerDe);
+        
+        position += lancerDe;
+        verifierPosition(position);
+
+        System.out.println("Vous avancez de " + lancerDe + " cases. Vous êtes maintenant sur la case " + position + "/" + TAILLE_PLATEAU);
+        
+        afficherCaseActuelle(position);
+
+        if (position >= TAILLE_PLATEAU) {
+            System.out.println("Merci d'avoir joué !" + "\n T'es un GOAT");
+            return true;
+        }
+
+        return false;
+    }
+
+    private int lancerDe() {
+        return new Random().nextInt(6) + 1;
+    }
+
+    private void verifierPosition(int position) throws PersonnageHorsPlateauException {
+        if (position > TAILLE_PLATEAU) {
+            throw new PersonnageHorsPlateauException("Tu es hors plateau !");
+        }
+    }
+
+    private void afficherCaseActuelle(int position) {
+        Case currentCase = getCase(position);
+        System.out.println(currentCase.toString());
+    }
+}
 
 // Classe Plateau : Représente le plateau de jeu.
 // Attributs :
