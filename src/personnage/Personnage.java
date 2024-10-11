@@ -1,7 +1,6 @@
 package personnage;
 
-
-public abstract class Personnage { // Classe de base abstraite
+public abstract class Personnage {
     protected String name;
     protected String type;
     protected int HP;
@@ -17,12 +16,12 @@ public abstract class Personnage { // Classe de base abstraite
         this.ATQ = atq;
     }
 
-    public void parametreheros() {
-    }
+    public abstract void parametreheros();
 
     public String toString() {
-        return "\n Nom : " + name + ", Type : " + type + "\n HP \uD83D\uDEE1\uFE0F : " + HP + "\n ATQ \uD83D\uDDE1\uFE0F: " + ATQ;
+        return "\n Nom : " + name + ", Type : " + type + "\n HP 🛡️ : " + HP + "\n ATQ ⚔️ : " + ATQ;
     }
+
     public int getHP() {
         return HP;
     }
@@ -31,21 +30,3 @@ public abstract class Personnage { // Classe de base abstraite
         return ATQ;
     }
 }
-
-
-// Classe Personnage : Classe abstraite représentant un personnage dans le jeu.
-// Attributs :
-// - String name : Nom du personnage.
-// - String type : Type du personnage (Guerrier ou Magicien).
-// - int HP : Points de vie du personnage.
-// - int ATQ : Points d'attaque du personnage.
-//
-// Constructeur :
-// - Personnage(String name, String type) : Initialise le personnage avec un nom et un type.
-//
-// Méthodes :
-// - recuperationstuff(int hp, int atq) : Met à jour les attributs du personnage.
-// - parametreheros() : Méthode vide pour définir les paramètres du héros.
-// - getEquipementOffensif() : Renvoie l'équipement offensif du personnage.
-// - getEquipementDefensif() : Renvoie l'équipement défensif du personnage.
-// - toString() : Renvoie une représentation textuelle des attributs du personnage.

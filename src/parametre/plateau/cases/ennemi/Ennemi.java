@@ -17,7 +17,7 @@ public abstract class Ennemi implements Case {
         return nom;
     }
 
-    public int getPointsDeVie() {
+    public int getvieEnnemi() {
         return pointsDeVie;
     }
 

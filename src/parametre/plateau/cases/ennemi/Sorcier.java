@@ -1,5 +1,7 @@
 package parametre.plateau.cases.ennemi;
 
+import personnage.Personnage;
+
 public class Sorcier extends Ennemi {
     public Sorcier() {
         super("Sorcier", 9, 2);
@@ -13,5 +15,10 @@ public class Sorcier extends Ennemi {
     @Override
     public String getType() {
         return "Monstre";
+    }
+
+    @Override
+    public void interaction(Personnage personnage) {
+
     }
 }

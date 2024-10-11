@@ -2,6 +2,7 @@
 package parametre.plateau.cases.equipement.defensif;
 
 import parametre.plateau.cases.Case;
+import personnage.Personnage;
 
 public class Potion implements Case {
     private String nom;
@@ -18,11 +19,16 @@ public class Potion implements Case {
     }
 
     @Override
+    public void interaction(Personnage personnage) {
+
+    }
+
+    @Override
     public String toString() {
         return "Vous avez trouvé une potion : " + nom + " !" + "\nEffet : + " + effet + " DEF";
     }
 
-    public int utiliser() {
-        return effet;
-    }
+//    public int utiliser() {
+//        return effet;
+//    }
 }

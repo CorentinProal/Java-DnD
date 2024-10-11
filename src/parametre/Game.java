@@ -2,9 +2,7 @@ package parametre;
 
 import personnage.Personnage;
 import java.util.Scanner;
-import parametre.plateau.cases.Case;
 import parametre.plateau.Plateau;
-import java.util.Random;
 
 public class Game {
     private Personnage personnage;
@@ -12,7 +10,6 @@ public class Game {
     private Scanner sc;
     private Menu menu;
     private Plateau plateau;
-    private Random random = new Random();
 
     public Game() {
         this.sc = new Scanner(System.in);
@@ -61,7 +58,8 @@ public class Game {
                         menu.afficherInfosPersonnage(personnage);
                         break;
                     case 2:
-                        jouerUnTour();
+                        continuer = !plateau.jouerUnTour(position);
+                        position += plateau.getDernierLancer();
                         break;
                     case 3:
                         menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
@@ -82,15 +80,6 @@ public class Game {
             choix = sc.nextInt();
         } while (choix < 1 || choix > nombreOptions);
         return choix;
-    }
-
-    public boolean jouerUnTour() throws PersonnageHorsPlateauException {
-        return plateau.jouerUnTour(position);
-    }
-
-    private void afficherCaseActuelle() {
-        Case currentCase = plateau.getCase(position);
-        System.out.println(currentCase.toString());
     }
 }
 
