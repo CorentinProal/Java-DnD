@@ -72,8 +72,7 @@ public class Plateau {
         position += lancer;
         verifierPosition(position);
 
-        System.out.println("Vous êtes sur la case " + (position + 1) + "/" + TAILLE_PLATEAU +
-                ". Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
+        System.out.println(" Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
                 + (position + 1) + ": " + cases.get(position).toString());
 
         if (position == TAILLE_PLATEAU) {
