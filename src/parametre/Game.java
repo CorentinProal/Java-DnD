@@ -1,6 +1,8 @@
 package parametre;
 
 import personnage.Personnage;
+import personnage.classe.Guerrier;
+import personnage.classe.Magicien;
 import java.util.Scanner;
 import parametre.plateau.Plateau;
 
@@ -39,7 +41,7 @@ public class Game {
 
                 switch (choix) {
                     case 1:
-                        menu.creationPersonnage(this);
+                        creerPersonnage();
                         break;
                     case 2:
                         menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
@@ -51,7 +53,7 @@ public class Game {
                 }
             } else {
                 menu.afficherMenu();
-                int choix = choixOption(4);
+                int choix = choixOption(3);
 
                 switch (choix) {
                     case 1:
@@ -73,7 +75,20 @@ public class Game {
         }
     }
 
-    int choixOption(int nombreOptions) {
+    private void creerPersonnage() {
+        String playerName = menu.nomPersonnage();
+        int choixClasse = menu.classePersonnage();
+
+        if (choixClasse == 1) {
+            setPersonnage(new Guerrier(playerName));
+        } else {
+            setPersonnage(new Magicien(playerName));
+        }
+
+        menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
+    }
+
+    private int choixOption(int nombreOptions) {
         int choix;
         do {
             System.out.print("Choisissez une option (1-" + nombreOptions + "): ");
@@ -82,6 +97,7 @@ public class Game {
         return choix;
     }
 }
+
 
 // Classe Game : Gère le déroulement du jeu, y compris la création du personnage, le mouvement sur le plateau et l'affichage des informations.
 // Attributs : 

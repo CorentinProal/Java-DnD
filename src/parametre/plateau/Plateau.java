@@ -4,7 +4,6 @@ import parametre.PersonnageHorsPlateauException;
 import parametre.plateau.cases.Case;
 import parametre.plateau.cases.CaseVide;
 import parametre.plateau.cases.ennemi.Dragon;
-import parametre.plateau.cases.ennemi.Ennemi;
 import parametre.plateau.cases.ennemi.Sorcier;
 import parametre.plateau.cases.ennemi.Goblin;
 import parametre.plateau.cases.equipement.offensif.Massue;
@@ -13,9 +12,6 @@ import parametre.plateau.cases.equipement.offensif.Eclair;
 import parametre.plateau.cases.equipement.offensif.BouleDeFeu;
 import parametre.plateau.cases.equipement.defensif.PotionStandard;
 import parametre.plateau.cases.equipement.defensif.GrandePotion;
-import personnage.Personnage;
-import personnage.classe.Guerrier;
-import personnage.classe.Magicien;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,7 +20,7 @@ import java.util.Random;
 
 public class Plateau {
     public static final int TAILLE_PLATEAU = 64;
-    private ArrayList<Case> cases;
+    private List<Case> cases;
     private int dernierLancer;
 
     public Plateau() {
@@ -46,7 +42,6 @@ public class Plateau {
         for (int i = 0; i < 3; i++) {
             objets.add(new Epee());
         }
-
         for (int i = 0; i < 4; i++) {
             objets.add(new PotionStandard());
         }
@@ -71,19 +66,18 @@ public class Plateau {
         }
     }
 
-    public Case getCase(int position) {
-        return cases.get(position - 1);
-    }
-
     public boolean jouerUnTour(int position) throws PersonnageHorsPlateauException {
-        position += lancerDe();
+        verifierPosition(position);
+        int lancer = lancerDe();
+        position += lancer;
         verifierPosition(position);
 
-        System.out.println("Vous avancez de " + dernierLancer + " cases. Vous êtes maintenant sur la case " + position + "/" + TAILLE_PLATEAU);
-        afficherCaseActuelle(position);
+        System.out.println("Vous êtes sur la case " + (position + 1) + "/" + TAILLE_PLATEAU +
+                ". Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
+                + (position + 1) + ": " + cases.get(position).toString());
 
-        if (position >= TAILLE_PLATEAU) {
-            System.out.println("Merci d'avoir joué ! \n T'es un GOAT");
+        if (position == TAILLE_PLATEAU) {
+            System.out.println("Félicitations, vous avez gagné en atteignant la case 64 !");
             return true;
         }
         return false;
@@ -97,16 +91,7 @@ public class Plateau {
         if (position > TAILLE_PLATEAU) throw new PersonnageHorsPlateauException("Tu es hors plateau !");
     }
 
-    private void afficherCaseActuelle(int position) {
-        Case currentCase = getCase(position);
-        System.out.println(currentCase.toString());
-    }
-
     public int getDernierLancer() {
         return dernierLancer;
     }
 }
-
-
-
-

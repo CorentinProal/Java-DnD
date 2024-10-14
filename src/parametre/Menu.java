@@ -1,8 +1,6 @@
 package parametre;
 
 import java.util.Scanner;
-import personnage.classe.Guerrier;
-import personnage.classe.Magicien;
 import personnage.Personnage;
 
 public class Menu {
@@ -17,21 +15,16 @@ public class Menu {
         System.out.println();
     }
 
-    public void creationPersonnage(Game game) {
+    public String nomPersonnage() {
         System.out.print("C'est quoi ton petit nom ? : ");
-        String playerName = sc.next();
+        return sc.next();
+    }
+
+    public int classePersonnage() {
         message("Tu joues quoi ? :");
         message("1. Guerrier");
         message("2. Magicien");
-        int choixClasse = game.choixOption(2);
-
-        if (choixClasse == 1) {
-            game.setPersonnage(new Guerrier(playerName));
-        } else {
-            game.setPersonnage(new Magicien(playerName));
-        }
-
-        message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
+        return choixOption(2);
     }
 
     public void afficherMenu() {
@@ -47,7 +40,17 @@ public class Menu {
             message("Aucun personnage n'a été créé.");
         }
     }
+
+    private int choixOption(int nombreOptions) {
+        int choix;
+        do {
+            System.out.print("Choisissez une option (1-" + nombreOptions + "): ");
+            choix = sc.nextInt();
+        } while (choix < 1 || choix > nombreOptions);
+        return choix;
+    }
 }
+
 
 // Classe Menu : Gère l'interface utilisateur pour le jeu.
 // Attributs :
