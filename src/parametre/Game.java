@@ -16,7 +16,7 @@ public class Game {
     public Game() {
         this.sc = new Scanner(System.in);
         this.menu = new Menu();
-        this.plateau = new Plateau();
+        this.plateau = new Plateau(personnage);
         this.position = 0;
     }
 
@@ -42,6 +42,7 @@ public class Game {
                 switch (choix) {
                     case 1:
                         creerPersonnage();
+                        menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
                         break;
                     case 2:
                         menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
@@ -60,7 +61,7 @@ public class Game {
                         menu.afficherInfosPersonnage(personnage);
                         break;
                     case 2:
-                        continuer = !plateau.jouerUnTour(position);
+                        continuer = !plateau.jouerUnTour(position, personnage);
                         position += plateau.getDernierLancer();
                         break;
                     case 3:
@@ -75,17 +76,19 @@ public class Game {
         }
     }
 
-    private void creerPersonnage() {
-        String playerName = menu.nomPersonnage();
+    private Personnage creerPersonnage() {
+        String nomJoueur = menu.nomPersonnage();
         int choixClasse = menu.classePersonnage();
 
         if (choixClasse == 1) {
-            setPersonnage(new Guerrier(playerName));
+            Personnage personnage1 = new Guerrier(nomJoueur);
+            return personnage1;
         } else {
-            setPersonnage(new Magicien(playerName));
+            Personnage personnage1 = new Magicien(nomJoueur);
+            return personnage1;
         }
 
-        menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
+//        menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
     }
 
     private int choixOption(int nombreOptions) {

@@ -58,7 +58,7 @@ public class Main {
 //        +---------------------+
 //        |     Personnage      |
 //        +---------------------+
-//        | - name: String      |
+//        | - nom: String      |
 //        | - type: String      |
 //        | - HP: int           |
 //        | - ATQ: int          |
@@ -86,7 +86,7 @@ public class Main {
 //        +---------------------+
 //        |  EquipmentOffensif  |
 //        +---------------------+
-//        | - name: String      |
+//        | - nom: String      |
 //        | - type: String      |
 //        | - ATQLevel: int     |
 //        +---------------------+
@@ -112,7 +112,7 @@ public class Main {
 //        +---------------------+
 //        |  EquipementDefensif |
 //        +---------------------+
-//        | - name: String      |
+//        | - nom: String      |
 //        | - type: String      |
 //        | - DEFLevel: int     |
 //        +---------------------+
@@ -179,7 +179,7 @@ public class Main {
 //                                      ,---------------------------------------------.
 //                                      |Personnage                                   |
 //                                      |---------------------------------------------|
-//                                      |- name: String                               |
+//                                      |- nom: String                               |
 //        ,--------------------------.  |- type: String                               |
 //        |Menu                      |  |- HP: int                                    |
 //        |--------------------------|  |- ATQ: int                                   |
@@ -195,7 +195,7 @@ public class Main {
 //                                                      ,--------------------.   ,--------------------.
 //                                                      |EquipmentOffensif   |   |EquipementDefensif  |
 //                                                      |--------------------|   |--------------------|
-//                                                      |- name: String      |   |- name: String      |
+//                                                      |- nom: String      |   |- nom: String      |
 //        ,------------------.   ,------------------.   |- type: String      |   |- type: String      |
 //        |Guerrier          |   |Magicien          |   |- ATQLevel: int     |   |- DEFLevel: int     |
 //        |------------------|   |------------------|   |+ getName(): String |   |+ getName(): String |

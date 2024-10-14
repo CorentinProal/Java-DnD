@@ -1,13 +1,15 @@
 package personnage;
 
+import parametre.plateau.cases.ennemi.Ennemi;
+
 public abstract class Personnage {
-    protected String name;
+    protected String nom;
     protected String type;
     protected int HP;
     protected int ATQ;
 
-    public Personnage(String name, String type) {
-        this.name = name;
+    public Personnage(String nom, String type) {
+        this.nom = nom;
         this.type = type;
     }
 
@@ -19,7 +21,7 @@ public abstract class Personnage {
     public abstract void parametreheros();
 
     public String toString() {
-        return "\n Nom : " + name + ", Type : " + type + "\n HP 🛡️ : " + HP + "\n ATQ ⚔️ : " + ATQ;
+        return "\n Nom : " + nom + ", Type : " + type + "\n HP 🛡️ : " + HP + "\n ATQ ⚔️ : " + ATQ;
     }
 
     public int getHP() {
@@ -28,5 +30,10 @@ public abstract class Personnage {
 
     public int getATQ() {
         return ATQ;
+    }
+
+    public void attaquer(Ennemi ennemi) {
+        System.out.println(nom + " attaque " + ennemi.getNom());
+        ennemi.recevoirDegats(ATQ);
     }
 }

@@ -4,14 +4,16 @@ import parametre.PersonnageHorsPlateauException;
 import parametre.plateau.cases.Case;
 import parametre.plateau.cases.CaseVide;
 import parametre.plateau.cases.ennemi.Dragon;
-import parametre.plateau.cases.ennemi.Sorcier;
+import parametre.plateau.cases.ennemi.Ennemi;
 import parametre.plateau.cases.ennemi.Goblin;
-import parametre.plateau.cases.equipement.offensif.Massue;
-import parametre.plateau.cases.equipement.offensif.Epee;
-import parametre.plateau.cases.equipement.offensif.Eclair;
-import parametre.plateau.cases.equipement.offensif.BouleDeFeu;
-import parametre.plateau.cases.equipement.defensif.PotionStandard;
+import parametre.plateau.cases.ennemi.Sorcier;
 import parametre.plateau.cases.equipement.defensif.GrandePotion;
+import parametre.plateau.cases.equipement.defensif.PotionStandard;
+import parametre.plateau.cases.equipement.offensif.BouleDeFeu;
+import parametre.plateau.cases.equipement.offensif.Eclair;
+import parametre.plateau.cases.equipement.offensif.Epee;
+import parametre.plateau.cases.equipement.offensif.Massue;
+import personnage.Personnage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +25,7 @@ public class Plateau {
     private List<Case> cases;
     private int dernierLancer;
 
-    public Plateau() {
+    public Plateau(Personnage personnage) {
         cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
 
         List<Case> objets = new ArrayList<>();
@@ -66,19 +68,30 @@ public class Plateau {
         }
     }
 
-    public boolean jouerUnTour(int position) throws PersonnageHorsPlateauException {
+    public boolean jouerUnTour(int position, Personnage personnage1 ) throws PersonnageHorsPlateauException {
         verifierPosition(position);
         int lancer = lancerDe();
         position += lancer;
         verifierPosition(position);
 
-        System.out.println(" Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
+        System.out.println("Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
                 + (position + 1) + ": " + cases.get(position).toString());
 
         if (position == TAILLE_PLATEAU) {
             System.out.println("Félicitations, vous avez gagné en atteignant la case 64 !");
             return true;
         }
+
+        if (cases.get(position) instanceof Ennemi) {
+            Ennemi ennemi = (Ennemi) cases.get(position);
+            personnage1.attaquer(ennemi);
+
+            if (ennemi.getvieEnnemi() <= 0) {
+                cases.set(position, new CaseVide());
+                System.out.println(ennemi.getNom() + " a été vaincu et la case est maintenant vide.");
+            }
+        }
+
         return false;
     }
 

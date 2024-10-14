@@ -23,4 +23,17 @@ public abstract class Ennemi implements Case {
 
     @Override
     public abstract String toString();
+
+    public void recevoirDegats(int degatsInfliges) {
+        pointsDeVie -= degatsInfliges;
+        System.out.println(nom + "reçoit " + pointsDeVie + " degats");
+        if (pointsDeVie <= 0) {
+            System.out.println(" a été vaincu ! ");
+        }
+
+    }
+
+    public int getForce(){
+        return force;
+    }
 }
