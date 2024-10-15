@@ -25,7 +25,7 @@ public class Eclair extends Sort implements Case {
     public void interaction(Personnage personnage) {
         int nouvelleATQ = personnage.getATQ() + this.getATQLevel();
         personnage.setATQ(nouvelleATQ);
-        System.out.println(personnage.getNom() + " Ajoute " + this.getName() + "Son ATQ est maintenant de " + personnage.getATQ());
+        System.out.println(personnage.getNom() + " Ajoute " + this.getName() + " Son ATQ est maintenant de " + personnage.getATQ());
     }
 }
 

@@ -1,6 +1,6 @@
 package parametre.plateau;
 
-import parametre.PersonnageHorsPlateauException;
+import parametre.horsPlateauException;
 import parametre.plateau.cases.Case;
 import parametre.plateau.cases.CaseVide;
 import parametre.plateau.cases.ennemi.Dragon;
@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
-import static java.lang.reflect.Array.set;
 
 public class Plateau {
     public static final int TAILLE_PLATEAU = 64;
@@ -72,7 +70,7 @@ public class Plateau {
         }
     }
 
-    public boolean jouerUnTour(int position, Personnage personnage1) throws PersonnageHorsPlateauException {
+    public boolean jouerUnTour(int position, Personnage personnage1) throws horsPlateauException {
         verifierPosition(position);
         int lancer = lancerDe();
         position += lancer;
@@ -117,8 +115,8 @@ public class Plateau {
         return dernierLancer = new Random().nextInt(6) + 1;
     }
 
-    private void verifierPosition(int position) throws PersonnageHorsPlateauException {
-        if (position > TAILLE_PLATEAU) throw new PersonnageHorsPlateauException("Tu es hors plateau !");
+    private void verifierPosition(int position) throws horsPlateauException {
+        if (position > TAILLE_PLATEAU) throw new horsPlateauException("Tu es hors plateau !");
     }
 
     public int getDernierLancer() {

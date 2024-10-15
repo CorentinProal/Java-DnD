@@ -28,7 +28,7 @@ public class Game {
         return personnage;
     }
 
-    public void start() throws PersonnageHorsPlateauException {
+    public void start() throws horsPlateauException {
         boolean continuer = true;
 
         menu.message("\n Bienvenue chez Kayangel !");

@@ -15,7 +15,6 @@ public abstract class Personnage {
         this.type = type;
     }
 
-    // Définit les valeurs de base du personnage
     protected void recuperationstuff(int hp, int atq) {
         this.HP = hp;
         this.ATQ = atq;

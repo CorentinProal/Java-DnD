@@ -15,16 +15,16 @@ public class Magicien extends Personnage {
 
     @Override
     public void parametreheros() {
-        this.recuperationstuff(6, 10);
+        this.recuperationstuff(8, 10);
     }
 
     @Override
     public void utiliserEquipement(EquipementDefensif defensif) {
         if (defensif instanceof Philtre) {
             this.HP += defensif.getDEFLevel();
-            System.out.println("Le magicien utilise un philtre. Ces HP ont augmenté : " + this.HP);
+            System.out.println("Le Magicien utilise un philtre. Ses HP ont augmenté : " + this.HP);
         } else {
-            System.out.println("Le magicien ne peut pas utiliser cet équipement défensif !");
+            System.out.println("Le Magicien ne peut pas utiliser cet équipement défensif !");
         }
     }
 
@@ -35,7 +35,7 @@ public class Magicien extends Personnage {
             this.ATQ += offensif.getATQLevel();
             System.out.println("Son ATQ a augmenté à " + this.ATQ);
         } else {
-            System.out.println("Le magicien ne peut pas utiliser cette arme !");
+            System.out.println("Le Magicien ne peut pas utiliser cette arme !");
         }
     }
 

@@ -27,7 +27,7 @@ public abstract class Ennemi implements Case {
 
     public void recevoirDegats(int degatsInfliges) {
         vie -= degatsInfliges;
-        System.out.println(nom + " reçoit " + vie + " degats ");
+        System.out.println("Vie restante de : " + nom  +  vie );
         if (vie <= 0) {
             System.out.println(" a été vaincu ! ");
         }

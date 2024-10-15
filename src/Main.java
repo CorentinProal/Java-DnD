@@ -1,8 +1,8 @@
 import parametre.Game;
-import parametre.PersonnageHorsPlateauException;
+import parametre.horsPlateauException;
 
 public class Main {
-    public static void main(String[] args) throws PersonnageHorsPlateauException {
+    public static void main(String[] args) throws horsPlateauException {
         Game game = new Game();
         game.start();
     }
@@ -136,11 +136,11 @@ public class Main {
 //        +---------------------+          +---------------------+
 //
 //        +---------------------+
-//        | PersonnageHorsPlateauException |
+//        | horsPlateauException |
 //        +---------------------+
 //        |                     |
 //        +---------------------+
-//        | + PersonnageHorsPlateauException(String) |
+//        | + horsPlateauException(String) |
 //        +---------------------+
 //
 /////////////////////////////////////////////////////// V1 ///////////////////////////////////////////////////////////
@@ -149,9 +149,9 @@ public class Main {
 /////////////////////////////////////////////////////// V2 ///////////////////////////////////////////////////////////
 //
 //        ,---------------------.   ,----------------------------------------.
-//             |Main            |   |    |PersonnageHorsPlateauException     |
+//             |Main            |   |    |horsPlateauException     |
 //        |---------------------|   |----------------------------------------|
-//        |+ main(String[] args)|   |+ PersonnageHorsPlateauException(String)|
+//        |+ main(String[] args)|   |+ horsPlateauException(String)|
 //        `---------------------'   `----------------------------------------'
 //
 //
