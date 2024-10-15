@@ -1,16 +1,13 @@
 package parametre.plateau;
 
 import parametre.horsPlateauException;
-import parametre.plateau.cases.Case;
-import parametre.plateau.cases.CaseVide;
-//import parametre.plateau.cases.ennemi.Dragon;
-//import parametre.plateau.cases.ennemi.Ennemi;
-//import parametre.plateau.cases.ennemi.Goblin;
-//import parametre.plateau.cases.ennemi.Sorcier;
-import parametre.plateau.cases.equipement.Bonus;
-import parametre.plateau.cases.equipement.Potion;
+import parametre.plateau.Dragon;
+import parametre.plateau.Ennemi;
+import parametre.plateau.Goblin;
+import parametre.plateau.Sorcier;
+import personnage.equipement.Potion;
 
-import personnage.Personnage;
+import personnage.classe.Personnage;
 import personnage.equipement.defensif.Bouclier;
 import personnage.equipement.offensif.Arme;
 import personnage.equipement.offensif.Sort;
@@ -29,15 +26,15 @@ public class Plateau {
         cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
 
         List<Case> objets = new ArrayList<>();
-//        for (int i = 0; i < 4; i++) {
-//            objets.add(new Dragon());
-//        }
-//        for (int i = 0; i < 5; i++) {
-//            objets.add(new Sorcier());
-//        }
-//        for (int i = 0; i < 7; i++) {
-//            objets.add(new Goblin());
-//        }
+        for (int i = 0; i < 4; i++) {
+            objets.add(new Dragon());
+        }
+        for (int i = 0; i < 5; i++) {
+            objets.add(new Sorcier());
+        }
+        for (int i = 0; i < 7; i++) {
+            objets.add(new Goblin());
+        }
 
         for (int i = 0; i < 3; i++) {
             objets.add(new Arme("Massue", 3));

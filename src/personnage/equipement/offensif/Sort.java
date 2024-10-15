@@ -1,8 +1,8 @@
 
 package personnage.equipement.offensif;
 
-import parametre.plateau.cases.Case;
-import personnage.Personnage;
+import parametre.plateau.Case;
+import personnage.classe.Personnage;
 
 public class Sort extends EquipementOffensif implements Case {
     public Sort(String nom, int ATQLevel) {

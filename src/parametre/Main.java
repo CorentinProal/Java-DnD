@@ -1,5 +1,4 @@
-import parametre.Game;
-import parametre.horsPlateauException;
+package parametre;
 
 public class Main {
     public static void main(String[] args) throws horsPlateauException {
@@ -11,7 +10,7 @@ public class Main {
 
 /////////////////////////////////////////////////////// V1 ///////////////////////////////////////////////////////////
 //        +---------------------+
-//        |       Main          |
+//        |       parametre.Main          |
 //        +---------------------+
 //        |                     |
 //        +---------------------+
@@ -149,7 +148,7 @@ public class Main {
 /////////////////////////////////////////////////////// V2 ///////////////////////////////////////////////////////////
 //
 //        ,---------------------.   ,----------------------------------------.
-//             |Main            |   |    |horsPlateauException     |
+//             |parametre.Main            |   |    |horsPlateauException     |
 //        |---------------------|   |----------------------------------------|
 //        |+ main(String[] args)|   |+ horsPlateauException(String)|
 //        `---------------------'   `----------------------------------------'

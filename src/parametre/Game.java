@@ -1,6 +1,6 @@
 package parametre;
 
-import personnage.Personnage;
+import personnage.classe.Personnage;
 import personnage.classe.Guerrier;
 import personnage.classe.Magicien;
 import java.util.Scanner;

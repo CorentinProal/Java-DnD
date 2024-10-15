@@ -1,8 +1,8 @@
 
 package personnage.equipement.defensif;
 
-import parametre.plateau.cases.Case;
-import personnage.Personnage;
+import parametre.plateau.Case;
+import personnage.classe.Personnage;
 
 
 public class Philtre extends EquipementDefensif implements Case {

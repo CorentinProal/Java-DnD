@@ -1,7 +1,7 @@
 package parametre;
 
 import java.util.Scanner;
-import personnage.Personnage;
+import personnage.classe.Personnage;
 
 public class Menu {
     private Scanner sc;

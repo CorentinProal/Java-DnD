@@ -1,6 +1,5 @@
 package personnage.classe;
 
-import personnage.Personnage;
 import personnage.equipement.offensif.Arme;
 import personnage.equipement.defensif.Philtre;
 

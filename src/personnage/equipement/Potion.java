@@ -1,7 +1,7 @@
-package parametre.plateau.cases.equipement;
+package personnage.equipement;
 
-import parametre.plateau.cases.Case;
-import personnage.Personnage;
+import parametre.plateau.Case;
+import personnage.classe.Personnage;
 
 public class Potion extends Bonus implements Case {
     public Potion(String nom, int effet) {

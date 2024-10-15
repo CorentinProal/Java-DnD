@@ -1,6 +1,5 @@
-package personnage;
+package personnage.classe;
 
-import parametre.plateau.cases.ennemi.Ennemi;
 import personnage.equipement.defensif.EquipementDefensif;
 import personnage.equipement.offensif.EquipementOffensif;
 
@@ -20,17 +19,10 @@ public abstract class Personnage {
         this.type = type;
     }
 
-//    protected void recuperationstuff(int hp, int atq) {
-//        this.HP = hp;
-//        this.ATQ = atq;
+//    public void attaquer(Ennemi ennemi) {
+//        System.out.println(nom + " attaque " + ennemi.getNom());
+//        ennemi.recevoirDegats(ATQ);
 //    }
-
-   // public abstract void parametreheros();
-
-    public void attaquer(Ennemi ennemi) {
-        System.out.println(nom + " attaque " + ennemi.getNom());
-        ennemi.recevoirDegats(ATQ);
-    }
 
 
     public String toString() {
@@ -67,7 +59,6 @@ public abstract class Personnage {
         this.arme = arme;
     }
 
-    // **Ajoute le getter pour le nom**
     public String getNom() {
         return nom;
     }

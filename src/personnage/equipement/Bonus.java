@@ -1,6 +1,4 @@
-package parametre.plateau.cases.equipement;
-
-
+package personnage.equipement;
 
 public abstract class Bonus {
     private String nom;

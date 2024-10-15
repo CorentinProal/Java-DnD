@@ -1,6 +1,6 @@
-package parametre.plateau.cases;
+package parametre.plateau;
 
-import personnage.Personnage;
+import personnage.classe.Personnage;
 
 public interface Case {
 
