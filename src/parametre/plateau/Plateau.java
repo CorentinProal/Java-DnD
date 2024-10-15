@@ -1,14 +1,15 @@
 package parametre.plateau;
 
 import parametre.horsPlateauException;
-import parametre.plateau.Dragon;
-import parametre.plateau.Ennemi;
-import parametre.plateau.Goblin;
-import parametre.plateau.Sorcier;
+//import parametre.plateau.Dragon;
+//import parametre.plateau.Ennemi;
+//import parametre.plateau.Goblin;
+//import parametre.plateau.Sorcier;
 import personnage.equipement.Potion;
 
 import personnage.classe.Personnage;
 import personnage.equipement.defensif.Bouclier;
+import personnage.equipement.defensif.Philtre;
 import personnage.equipement.offensif.Arme;
 import personnage.equipement.offensif.Sort;
 
@@ -42,21 +43,23 @@ public class Plateau {
         for (int i = 0; i < 3; i++) {
             objets.add(new Arme("Epee", 7));
         }
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 8; i++) {
             objets.add(new Bouclier("Bouclier", 10));
         }
-
+        for (int i = 0; i < 20; i++) {
+            objets.add(new Philtre("Voile Eternel", 10));
+        }
         for (int i = 0; i < 2; i++) {
-            objets.add(new Sort("Boule de feu", 8));
+            objets.add(new Sort("Esprit du Feufollet", 8));
         }
         for (int i = 0; i < 3; i++) {
             objets.add(new Sort("Foudre", 5));
         }
         for (int i = 0; i < 2; i++) {
-            objets.add(new Potion("Potionptite", 1));
+            objets.add(new Potion("Mini Potion", 1));
         }
         for (int i = 0; i < 2; i++) {
-            objets.add(new Potion("PotionGrande", 10));
+            objets.add(new Potion("Grande Potion", 10));
         }
         int casesVides = TAILLE_PLATEAU - objets.size();
         for (int i = 0; i < casesVides; i++) {

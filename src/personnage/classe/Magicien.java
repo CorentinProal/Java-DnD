@@ -9,7 +9,12 @@ public class Magicien extends Personnage {
         super(name, "Magicien");
         this.setHP(6);
         this.setATQ(10);
-        this.setArme(new Arme("Ptite boule de feu", 1));
-        this.setArmure(new Philtre("Armure de tapette",1));
+        this.setArme(new Arme("Mini Feu", 1));
+        this.setArmure(new Philtre("Voile Leger",1));
+    }
+
+    @Override
+    public void attaque(Personnage joueur) {
+
     }
 }

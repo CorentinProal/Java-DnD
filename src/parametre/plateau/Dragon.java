@@ -9,7 +9,7 @@ public class Dragon extends Ennemi {
 
     @Override
     public String toString() {
-        return "Un " + nom + " avec " + vie + " points de vie et une force de " + force + ".";
+        return "Un " + nom + " avec " + vie + " HP et une force de " + force + ".";
     }
     @Override
     public String getType() {

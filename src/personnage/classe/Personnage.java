@@ -1,9 +1,10 @@
 package personnage.classe;
 
+import parametre.plateau.Combat;
 import personnage.equipement.defensif.EquipementDefensif;
 import personnage.equipement.offensif.EquipementOffensif;
 
-public abstract class Personnage {
+public abstract class Personnage implements Combat{
     protected String nom;
     protected String type;
     protected int HP;
@@ -18,12 +19,6 @@ public abstract class Personnage {
         this.nom = nom;
         this.type = type;
     }
-
-//    public void attaquer(Ennemi ennemi) {
-//        System.out.println(nom + " attaque " + ennemi.getNom());
-//        ennemi.recevoirDegats(ATQ);
-//    }
-
 
     public String toString() {
         return "\n Nom : " + nom + ", Type : " + type + "\n HP 🛡️ : " + HP + "\n ATQ ⚔️ : " + ATQ + "\n" + arme.toString() + "\n" + armure.toString();
@@ -65,6 +60,22 @@ public abstract class Personnage {
     public void setHP(int HP) {
         this.HP = HP;
     }
+
+    @Override
+    public void degatsInfliges(int degatsInfliges){
+        int defence = getArmure().getDEFLevel();
+        int degatsSubis = degatsInfliges - defence;
+        if (degatsSubis < 0) {
+            degatsSubis = 0;
+        }
+        this.HP -= degatsSubis;
+    }
+
+    @Override
+    public void combattre(Personnage joueur){
+
+    }
+
 
 
 
