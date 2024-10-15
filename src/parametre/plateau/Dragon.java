@@ -20,4 +20,9 @@ public class Dragon extends Ennemi {
     public void interaction(Personnage joueur) {
 
     }
+
+    @Override
+    public void attaque(Personnage joueur) {
+
+    }
 }

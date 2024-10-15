@@ -21,30 +21,29 @@ public abstract class Ennemi implements Combat, Case {
     }
 
     public void combattre(Personnage joueur) {
-        System.out.println("Le combat commence contre un " + this.type + " nommé " + this.nom + " !!");
-        joueur.degatsInfliges(joueur.getATQ());
-        System.out.println(this.nom + " reçoit " + joueur.getATQ() + " points de dégâts.");
+        System.out.println("Le combat commence contre un " + this.getType() + " nommé " + this.nom + " !!");
 
-        if (getVie() <= 0) {
-            System.out.println("Vous avez vaincu " + this.nom + " le " + this.type + " !");
-            return;
+        while (this.vie > 0 && joueur.getHP() > 0) {
+            // Le joueur attaque en premier
+            this.degatsInfliges(joueur.getATQ());
+            System.out.println(this.nom + " reçoit " + joueur.getATQ() + " points de dégâts.");
+
+            if (this.vie <= 0) {
+                System.out.println("Vous avez vaincu " + this.nom + " le " + this.getType() + " !");
+                break;
+            }
+
+            // Si l'ennemi est encore en vie, il attaque le joueur
+            joueur.degatsInfliges(this.getForce());
+            System.out.println(joueur.getNom() + " reçoit " + this.getForce() + " points de dégâts.");
+
+            if (joueur.getHP() <= 0) {
+                System.out.println("Vous avez été vaincu par " + this.nom + " le " + this.getType() + "...");
+                System.exit(0);
+            }
         }
-
-        joueur.degatsInfliges(getForce());
-        System.out.println("Le joueur reçoit " + getForce() + " points de dégâts.");
-
-        if (joueur.getHP() <= 0) {
-            System.out.println("Vous avez été vaincu par " + this.nom + " le " + this.type + "...");
-            System.exit(0);
-        }
-
-
     }
 
-    @Override
-    public void attaque(Personnage joueur){
-        combattre(joueur);
-    }
 
 
 

@@ -62,14 +62,16 @@ public abstract class Personnage implements Combat{
     }
 
     @Override
-    public void degatsInfliges(int degatsInfliges){
-        int defence = getArmure().getDEFLevel();
-        int degatsSubis = degatsInfliges - defence;
+    public void degatsInfliges(int degatsInfliges) {
+        int defense = (armure != null) ? getArmure().getDEFLevel() : 0;
+        int degatsSubis = degatsInfliges - defense;
         if (degatsSubis < 0) {
             degatsSubis = 0;
         }
         this.HP -= degatsSubis;
+        System.out.println(nom + " subit " + degatsSubis + " points de dégâts (Défense: " + defense + ")");
     }
+
 
     @Override
     public void combattre(Personnage joueur){

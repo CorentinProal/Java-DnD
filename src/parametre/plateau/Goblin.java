@@ -22,4 +22,9 @@ public class Goblin extends Ennemi {
     public void interaction(Personnage joueur) {
 
     }
+
+    @Override
+    public void attaque(Personnage joueur) {
+
+    }
 }
