@@ -16,12 +16,12 @@ public class Game {
     public Game() {
         this.sc = new Scanner(System.in);
         this.menu = new Menu();
-        this.plateau = new Plateau(personnage);
         this.position = 0;
     }
 
     public void setPersonnage(Personnage personnage) {
         this.personnage = personnage;
+        this.plateau = new Plateau(personnage);
     }
 
     public Personnage getPersonnage() {
@@ -41,7 +41,8 @@ public class Game {
 
                 switch (choix) {
                     case 1:
-                        creerPersonnage();
+                        personnage = creerPersonnage();
+                        setPersonnage(personnage);
                         menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
                         break;
                     case 2:
@@ -81,14 +82,10 @@ public class Game {
         int choixClasse = menu.classePersonnage();
 
         if (choixClasse == 1) {
-            Personnage personnage1 = new Guerrier(nomJoueur);
-            return personnage1;
+            return new Guerrier(nomJoueur);
         } else {
-            Personnage personnage1 = new Magicien(nomJoueur);
-            return personnage1;
+            return new Magicien(nomJoueur);
         }
-
-//        menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
     }
 
     private int choixOption(int nombreOptions) {
@@ -100,31 +97,3 @@ public class Game {
         return choix;
     }
 }
-
-
-// Classe Game : Gère le déroulement du jeu, y compris la création du personnage, le mouvement sur le plateau et l'affichage des informations.
-// Attributs : 
-// - Personnage personnage : Représente le personnage du joueur.
-// - int position : Indique la position actuelle du joueur sur le plateau (1 à 64).
-// - Scanner sc : Pour la saisie utilisateur.
-// - Menu menu : Gère l'affichage du menu.
-// - Plateau plateau : Représente le plateau de jeu.
-// - Random random : Pour générer des nombres aléatoires (lancer de dé).
-//
-// Constructeur : 
-// - Game() : Initialise le jeu, le personnage, la position et le menu.
-//
-// Méthodes : 
-// - setPersonnage(Personnage personnage) : Définit le personnage du joueur.
-// - getPersonnage() : Renvoie le personnage du joueur.
-// - getPosition() : Renvoie la position actuelle du joueur.
-// - setPosition(int position) : Modifie la position du joueur.
-// - start() : Démarre le jeu et gère le menu principal.
-// - afficherMenu() : Affiche les options du menu.
-// - choixOption(int nombreOptions) : Demande à l'utilisateur de choisir une option.
-// - jouerUnTour() : Gère le déroulement d'un tour de jeu.
-// - lancerDe() : Simule un lancer de dé (1 à 6).
-// - verifierPosition() : Vérifie si la position du joueur est valide.
-// - afficherCaseActuelle() : Affiche la case actuelle sur le plateau.
-// - message(String message) : Affiche un message à l'utilisateur.
-// - infosPersonnage() : Affiche les informations du personnage.

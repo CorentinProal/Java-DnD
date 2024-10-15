@@ -1,6 +1,7 @@
 package parametre.plateau.cases.ennemi;
 
 import parametre.plateau.cases.Case;
+import personnage.Personnage;
 
 public abstract class Ennemi implements Case {
     protected String nom;
@@ -26,7 +27,7 @@ public abstract class Ennemi implements Case {
 
     public void recevoirDegats(int degatsInfliges) {
         pointsDeVie -= degatsInfliges;
-        System.out.println(nom + "reçoit " + pointsDeVie + " degats");
+        System.out.println(nom + " reçoit " + pointsDeVie + " degats ");
         if (pointsDeVie <= 0) {
             System.out.println(" a été vaincu ! ");
         }

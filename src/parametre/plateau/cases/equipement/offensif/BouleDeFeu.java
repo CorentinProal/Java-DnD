@@ -6,7 +6,10 @@ import parametre.plateau.cases.Case;
 
 public class BouleDeFeu extends Sort implements Case {
     public BouleDeFeu() {
-        super("Boule De Feu", 8);
+        super();
+        this.setName("Boule De Feu");
+        this.setATQLevel(8);
+        this.setType("Sort");
     }
 
     @Override
@@ -16,11 +19,14 @@ public class BouleDeFeu extends Sort implements Case {
 
     @Override
     public String getType() {
-        return "sort"; // ou un autre type approprié
+        return "sort";
     }
 
     @Override
     public void interaction(Personnage personnage) {
 
+        int nouvelleATQ = personnage.getATQ() + this.getATQLevel();
+        personnage.setATQ(nouvelleATQ);
+        System.out.println(personnage.getNom() + " utilise " + this.getName() + " ! Son ATQ est maintenant de " + personnage.getATQ());
     }
 }

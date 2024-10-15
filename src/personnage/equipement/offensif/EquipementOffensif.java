@@ -1,18 +1,21 @@
 package personnage.equipement.offensif;
-public abstract class EquipmentOffensif {
+
+public abstract class EquipementOffensif {
     private String name;
     private String type;
-    private  int ATQLevel;
+    private int ATQLevel;
 
-    public EquipmentOffensif() {
-        this("Massue", "Arme");
+    public EquipementOffensif() {
+        this.name = "Massue";
+        this.type = "Arme";
+        this.ATQLevel = 5;
     }
 
-    public EquipmentOffensif(String name) {
+    public EquipementOffensif(String name) {
         this(name, "Arme");
     }
 
-    public EquipmentOffensif(String name, String type) {
+    public EquipementOffensif(String name, String type) {
         this.name = name;
         this.type = type;
     }
@@ -28,17 +31,20 @@ public abstract class EquipmentOffensif {
     public void setName(String name) {
         this.name = name;
     }
+
     public void setType(String type) {
         this.type = type;
     }
+
     public int getATQLevel() {
         return ATQLevel;
     }
+
     public void setATQLevel(int ATQLevel) {
         this.ATQLevel = ATQLevel;
     }
 
-
+    @Override
     public String toString() {
         return "\n Offensif : " + name + "\n Type : " + type + "\n ATQLevel ⚡ : + " + ATQLevel;
     }

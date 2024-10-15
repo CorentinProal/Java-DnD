@@ -14,6 +14,7 @@ import parametre.plateau.cases.equipement.offensif.Eclair;
 import parametre.plateau.cases.equipement.offensif.Epee;
 import parametre.plateau.cases.equipement.offensif.Massue;
 import personnage.Personnage;
+import personnage.equipement.offensif.Sort;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -82,14 +83,17 @@ public class Plateau {
             return true;
         }
 
-        if (cases.get(position) instanceof Ennemi) {
-            Ennemi ennemi = (Ennemi) cases.get(position);
+        Case caseActuelle = cases.get(position);
+
+        if (caseActuelle instanceof Ennemi) {
+            Ennemi ennemi = (Ennemi) caseActuelle;
             personnage1.attaquer(ennemi);
 
             if (ennemi.getvieEnnemi() <= 0) {
                 cases.set(position, new CaseVide());
-                System.out.println(ennemi.getNom() + " a été vaincu et la case est maintenant vide.");
             }
+        } else if (caseActuelle instanceof Sort) {
+            caseActuelle.interaction(personnage1);
         }
 
         return false;

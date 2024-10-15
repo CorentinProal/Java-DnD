@@ -1,6 +1,6 @@
 package personnage.equipement.offensif;
 
-public class Arme extends EquipmentOffensif {
+public class Arme extends EquipementOffensif {
     public Arme() {
         super();
         this.setName("Coup uppercut");

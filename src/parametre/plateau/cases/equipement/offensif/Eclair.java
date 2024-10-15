@@ -6,7 +6,9 @@ import parametre.plateau.cases.Case;
 
 public class Eclair extends Sort implements Case {
     public Eclair() {
-        super("Eclair Fulgurant", 4);
+        super();
+        this.setName("Eclair Fulgurant");
+        this.setATQLevel(8);
     }
 
     @Override
@@ -16,12 +18,14 @@ public class Eclair extends Sort implements Case {
 
     @Override
     public String getType() {
-        return "sort"; // ou un autre type approprié
+        return "sort";
     }
 
     @Override
     public void interaction(Personnage personnage) {
-        
+        int nouvelleATQ = personnage.getATQ() + this.getATQLevel();
+        personnage.setATQ(nouvelleATQ);
+        System.out.println(personnage.getNom() + " Ajoute " + this.getName() + "Son ATQ est maintenant de " + personnage.getATQ());
     }
 }
 
