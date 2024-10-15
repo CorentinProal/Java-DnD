@@ -7,14 +7,11 @@ import parametre.plateau.cases.ennemi.Dragon;
 import parametre.plateau.cases.ennemi.Ennemi;
 import parametre.plateau.cases.ennemi.Goblin;
 import parametre.plateau.cases.ennemi.Sorcier;
-import parametre.plateau.cases.equipement.defensif.GrandePotion;
-import parametre.plateau.cases.equipement.defensif.Potion;
-import parametre.plateau.cases.equipement.defensif.PotionStandard;
-import parametre.plateau.cases.equipement.offensif.BouleDeFeu;
-import parametre.plateau.cases.equipement.offensif.Eclair;
-import parametre.plateau.cases.equipement.offensif.Epee;
-import parametre.plateau.cases.equipement.offensif.Massue;
+import parametre.plateau.cases.equipement.Bonus;
+import parametre.plateau.cases.equipement.Potion;
+
 import personnage.Personnage;
+import personnage.equipement.offensif.Arme;
 import personnage.equipement.offensif.Sort;
 
 import java.util.ArrayList;
@@ -41,22 +38,22 @@ public class Plateau {
             objets.add(new Goblin());
         }
         for (int i = 0; i < 3; i++) {
-            objets.add(new Massue());
+            objets.add(new Arme("Massue",3));
         }
         for (int i = 0; i < 3; i++) {
-            objets.add(new Epee());
+            objets.add(new Arme("Epee",7));
         }
         for (int i = 0; i < 4; i++) {
-            objets.add(new PotionStandard());
+            objets.add(new Bonus("Petite Potion",2));
         }
         for (int i = 0; i < 1; i++) {
-            objets.add(new GrandePotion());
+            objets.add(new Bonus("Grande Potion", 5));
         }
         for (int i = 0; i < 2; i++) {
-            objets.add(new BouleDeFeu());
+            objets.add(new Sort("Boule de feu",8));
         }
         for (int i = 0; i < 3; i++) {
-            objets.add(new Eclair());
+            objets.add(new Sort("Foudre",5));
         }
 
         int casesVides = TAILLE_PLATEAU - objets.size();

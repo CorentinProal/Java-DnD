@@ -29,11 +29,11 @@ public class CaseEnnemi implements Case {
     }
 
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage joueur) {
         System.out.println("Vous rencontrez un " + ennemi.getNom() + " ! ");
-        if (personnage instanceof Guerrier) {
+        if (joueur instanceof Guerrier) {
             System.out.println("Vous ête prêt à combattre !");
-        } else if (personnage instanceof Magicien){
+        } else if (joueur instanceof Magicien){
             System.out.println("Vous préparez un sort !");
         }
     }

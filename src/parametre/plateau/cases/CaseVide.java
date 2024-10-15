@@ -13,7 +13,7 @@ public class CaseVide implements Case {
     }
 
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage joueur) {
         System.out.println("Rien ne se passe.");
     }
 }

@@ -5,11 +5,15 @@ public abstract class EquipementOffensif {
     private String type;
     private int ATQLevel;
 
-    public EquipementOffensif() {
-        this.name = "Massue";
-        this.type = "Arme";
-        this.ATQLevel = 5;
+    public EquipementOffensif(){
+
     }
+
+//    public EquipementOffensif() {
+//        this.name = "Massue";
+//        this.type = "Arme";
+//        this.ATQLevel = 5;
+//    }
 
     public EquipementOffensif(String name) {
         this(name, "Arme");

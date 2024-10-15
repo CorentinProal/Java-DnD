@@ -9,18 +9,23 @@ public abstract class Personnage {
     protected String type;
     protected int HP;
     protected int ATQ;
+    protected EquipementOffensif arme;
+    protected EquipementDefensif armure;
 
+    public Personnage(){
+
+    }
     public Personnage(String nom, String type) {
         this.nom = nom;
         this.type = type;
     }
 
-    protected void recuperationstuff(int hp, int atq) {
-        this.HP = hp;
-        this.ATQ = atq;
-    }
+//    protected void recuperationstuff(int hp, int atq) {
+//        this.HP = hp;
+//        this.ATQ = atq;
+//    }
 
-    public abstract void parametreheros();
+   // public abstract void parametreheros();
 
     public void attaquer(Ennemi ennemi) {
         System.out.println(nom + " attaque " + ennemi.getNom());
@@ -44,6 +49,24 @@ public abstract class Personnage {
         this.ATQ = ATQ;
     }
 
+    public EquipementDefensif getArmure() {
+        return armure;
+    }
+    public void setArmure(EquipementDefensif armure) {
+        this.armure = armure;
+    }
+
+    public EquipementOffensif getArme() {
+        return arme;
+    }
+    public String getType() {
+        return type;
+    }
+
+    public void setArme(EquipementOffensif arme) {
+        this.arme = arme;
+    }
+
     // **Ajoute le getter pour le nom**
     public String getNom() {
         return nom;
@@ -53,7 +76,5 @@ public abstract class Personnage {
     }
 
 
-    public abstract void utiliserEquipement(EquipementDefensif defensif);
 
-    public abstract void utiliserEquipement(EquipementOffensif offensif);
 }

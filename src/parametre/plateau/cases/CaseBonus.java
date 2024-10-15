@@ -9,7 +9,7 @@ public class CaseBonus implements Case {
     }
 
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage joueur) {
         System.out.println("Vous avez trouvé un bonus");
     }
 }

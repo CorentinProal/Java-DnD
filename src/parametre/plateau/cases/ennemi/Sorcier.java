@@ -18,7 +18,7 @@ public class Sorcier extends Ennemi {
     }
 
     @Override
-    public void interaction(Personnage personnage) {
+    public void interaction(Personnage joueur) {
 
     }
 }

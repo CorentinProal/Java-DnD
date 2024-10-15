@@ -5,12 +5,11 @@ public abstract class EquipementDefensif {
     private String type;
     private int DEFLevel; // Conserve DEFLevel
 
-    public EquipementDefensif() {
-        this.name = "Bouclier";
-        this.type = "Défensif";
-        DEFLevel = 5; // Valeur par défaut pour DEFLevel
-    }
 
+
+    public EquipementDefensif() {
+
+    }
     public EquipementDefensif(String name) {
         this(name, "Bouclier");
     }

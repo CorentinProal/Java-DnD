@@ -1,42 +1,16 @@
 package personnage.classe;
 
 import personnage.Personnage;
-import personnage.equipement.offensif.EquipementOffensif;
-import personnage.equipement.defensif.EquipementDefensif;
+import personnage.equipement.offensif.Arme;
 import personnage.equipement.defensif.Philtre;
-import personnage.equipement.offensif.Sort;
 
 public class Magicien extends Personnage {
 
     public Magicien(String name) {
         super(name, "Magicien");
-        parametreheros();
+        this.setHP(6);
+        this.setATQ(10);
+        this.setArme(new Arme("Ptite boule de feu", 1));
+        this.setArmure(new Philtre("Armure de tapette",1));
     }
-
-    @Override
-    public void parametreheros() {
-        this.recuperationstuff(8, 10);
-    }
-
-    @Override
-    public void utiliserEquipement(EquipementDefensif defensif) {
-        if (defensif instanceof Philtre) {
-            this.HP += defensif.getDEFLevel();
-            System.out.println("Le Magicien utilise un philtre. Ses HP ont augmenté : " + this.HP);
-        } else {
-            System.out.println("Le Magicien ne peut pas utiliser cet équipement défensif !");
-        }
-    }
-
-    @Override
-    public void utiliserEquipement(EquipementOffensif offensif) {
-        if (offensif instanceof Sort) {
-            System.out.println(this.nom + " utilise " + offensif.getName());
-            this.ATQ += offensif.getATQLevel();
-            System.out.println("Son ATQ a augmenté à " + this.ATQ);
-        } else {
-            System.out.println("Le Magicien ne peut pas utiliser cette arme !");
-        }
-    }
-
 }
