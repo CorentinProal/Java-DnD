@@ -1,34 +1,34 @@
 package parametre.plateau.cases.ennemi;
 
 import parametre.plateau.cases.Case;
-import personnage.Personnage;
 
 public abstract class Ennemi implements Case {
     protected String nom;
-    protected int pointsDeVie;
+    protected int vie;
     protected int force;
 
-    public Ennemi(String nom, int pointsDeVie, int force) {
+    public Ennemi(String nom, int vie, int force) {
         this.nom = nom;
-        this.pointsDeVie = pointsDeVie;
+        this.vie = vie;
         this.force = force;
     }
+
 
     public String getNom() {
         return nom;
     }
 
     public int getvieEnnemi() {
-        return pointsDeVie;
+        return vie;
     }
 
     @Override
     public abstract String toString();
 
     public void recevoirDegats(int degatsInfliges) {
-        pointsDeVie -= degatsInfliges;
-        System.out.println(nom + " reçoit " + pointsDeVie + " degats ");
-        if (pointsDeVie <= 0) {
+        vie -= degatsInfliges;
+        System.out.println(nom + " reçoit " + vie + " degats ");
+        if (vie <= 0) {
             System.out.println(" a été vaincu ! ");
         }
 

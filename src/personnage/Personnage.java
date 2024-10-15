@@ -49,6 +49,10 @@ public abstract class Personnage {
     public String getNom() {
         return nom;
     }
+    public void setHP(int HP) {
+        this.HP = HP;
+    }
+
 
     public abstract void utiliserEquipement(EquipementDefensif defensif);
 

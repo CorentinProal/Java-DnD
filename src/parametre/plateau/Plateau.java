@@ -8,6 +8,7 @@ import parametre.plateau.cases.ennemi.Ennemi;
 import parametre.plateau.cases.ennemi.Goblin;
 import parametre.plateau.cases.ennemi.Sorcier;
 import parametre.plateau.cases.equipement.defensif.GrandePotion;
+import parametre.plateau.cases.equipement.defensif.Potion;
 import parametre.plateau.cases.equipement.defensif.PotionStandard;
 import parametre.plateau.cases.equipement.offensif.BouleDeFeu;
 import parametre.plateau.cases.equipement.offensif.Eclair;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import static java.lang.reflect.Array.set;
 
 public class Plateau {
     public static final int TAILLE_PLATEAU = 64;
@@ -69,7 +72,7 @@ public class Plateau {
         }
     }
 
-    public boolean jouerUnTour(int position, Personnage personnage1 ) throws PersonnageHorsPlateauException {
+    public boolean jouerUnTour(int position, Personnage personnage1) throws PersonnageHorsPlateauException {
         verifierPosition(position);
         int lancer = lancerDe();
         position += lancer;
@@ -78,22 +81,33 @@ public class Plateau {
         System.out.println("Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
                 + (position + 1) + ": " + cases.get(position).toString());
 
-        if (position == TAILLE_PLATEAU) {
+
+        if (position >= TAILLE_PLATEAU) {
             System.out.println("Félicitations, vous avez gagné en atteignant la case 64 !");
             return true;
         }
 
         Case caseActuelle = cases.get(position);
 
+
         if (caseActuelle instanceof Ennemi) {
             Ennemi ennemi = (Ennemi) caseActuelle;
             personnage1.attaquer(ennemi);
 
+
             if (ennemi.getvieEnnemi() <= 0) {
                 cases.set(position, new CaseVide());
             }
-        } else if (caseActuelle instanceof Sort) {
+        }
+
+        else if (caseActuelle instanceof Sort) {
             caseActuelle.interaction(personnage1);
+        }
+
+        else if (caseActuelle instanceof Potion) {
+            Potion potion = (Potion) caseActuelle;
+            potion.interaction(personnage1);
+            cases.set(position, new CaseVide());;
         }
 
         return false;
