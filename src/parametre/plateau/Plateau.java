@@ -3,14 +3,15 @@ package parametre.plateau;
 import parametre.horsPlateauException;
 import parametre.plateau.cases.Case;
 import parametre.plateau.cases.CaseVide;
-import parametre.plateau.cases.ennemi.Dragon;
-import parametre.plateau.cases.ennemi.Ennemi;
-import parametre.plateau.cases.ennemi.Goblin;
-import parametre.plateau.cases.ennemi.Sorcier;
+//import parametre.plateau.cases.ennemi.Dragon;
+//import parametre.plateau.cases.ennemi.Ennemi;
+//import parametre.plateau.cases.ennemi.Goblin;
+//import parametre.plateau.cases.ennemi.Sorcier;
 import parametre.plateau.cases.equipement.Bonus;
 import parametre.plateau.cases.equipement.Potion;
 
 import personnage.Personnage;
+import personnage.equipement.defensif.Bouclier;
 import personnage.equipement.offensif.Arme;
 import personnage.equipement.offensif.Sort;
 
@@ -28,34 +29,38 @@ public class Plateau {
         cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
 
         List<Case> objets = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            objets.add(new Dragon());
-        }
-        for (int i = 0; i < 5; i++) {
-            objets.add(new Sorcier());
-        }
-        for (int i = 0; i < 7; i++) {
-            objets.add(new Goblin());
+//        for (int i = 0; i < 4; i++) {
+//            objets.add(new Dragon());
+//        }
+//        for (int i = 0; i < 5; i++) {
+//            objets.add(new Sorcier());
+//        }
+//        for (int i = 0; i < 7; i++) {
+//            objets.add(new Goblin());
+//        }
+
+        for (int i = 0; i < 3; i++) {
+            objets.add(new Arme("Massue", 3));
         }
         for (int i = 0; i < 3; i++) {
-            objets.add(new Arme("Massue",3));
+            objets.add(new Arme("Epee", 7));
         }
-        for (int i = 0; i < 3; i++) {
-            objets.add(new Arme("Epee",7));
-        }
-        for (int i = 0; i < 4; i++) {
-            objets.add(new Bonus("Petite Potion",2));
-        }
-        for (int i = 0; i < 1; i++) {
-            objets.add(new Bonus("Grande Potion", 5));
-        }
-        for (int i = 0; i < 2; i++) {
-            objets.add(new Sort("Boule de feu",8));
-        }
-        for (int i = 0; i < 3; i++) {
-            objets.add(new Sort("Foudre",5));
+        for (int i = 0; i < 20; i++) {
+            objets.add(new Bouclier("Bouclier", 10));
         }
 
+        for (int i = 0; i < 2; i++) {
+            objets.add(new Sort("Boule de feu", 8));
+        }
+        for (int i = 0; i < 3; i++) {
+            objets.add(new Sort("Foudre", 5));
+        }
+        for (int i = 0; i < 2; i++) {
+            objets.add(new Potion("Potionptite", 1));
+        }
+        for (int i = 0; i < 2; i++) {
+            objets.add(new Potion("PotionGrande", 10));
+        }
         int casesVides = TAILLE_PLATEAU - objets.size();
         for (int i = 0; i < casesVides; i++) {
             objets.add(new CaseVide());
@@ -76,34 +81,13 @@ public class Plateau {
         System.out.println("Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
                 + (position + 1) + ": " + cases.get(position).toString());
 
-
         if (position >= TAILLE_PLATEAU) {
             System.out.println("Félicitations, vous avez gagné en atteignant la case 64 !");
             return true;
         }
 
         Case caseActuelle = cases.get(position);
-
-
-        if (caseActuelle instanceof Ennemi) {
-            Ennemi ennemi = (Ennemi) caseActuelle;
-            personnage1.attaquer(ennemi);
-
-
-            if (ennemi.getvieEnnemi() <= 0) {
-                cases.set(position, new CaseVide());
-            }
-        }
-
-        else if (caseActuelle instanceof Sort) {
-            caseActuelle.interaction(personnage1);
-        }
-
-        else if (caseActuelle instanceof Potion) {
-            Potion potion = (Potion) caseActuelle;
-            potion.interaction(personnage1);
-            cases.set(position, new CaseVide());;
-        }
+        caseActuelle.interaction(personnage1);
 
         return false;
     }

@@ -15,15 +15,15 @@ public class Bouclier extends EquipementDefensif implements Case {
     @Override
     public void interaction(Personnage joueur) {
         if (joueur.getType().equals("Guerrier")) {
-            System.out.println("Tu trouve une nouvelle " + getType());
+            System.out.println("Tu trouves un nouveau " + getType());
             if (this.getDEFLevel() > joueur.getArmure().getDEFLevel()) {
-                joueur.setArmure(joueur.getArmure());
-            } else if (this.getDEFLevel() <= joueur.getArmure().getDEFLevel()) {
-                System.out.println("L'armure est à chier");
+                joueur.setArmure(this);
+                System.out.println("Tu t'équipes du nouveau bouclier : " + this.getName());
+            } else {
+                System.out.println("L'armure est moins bonne ou équivalente à celle que tu portes déjà.");
             }
-        }
-        else if (joueur.getType().equals("Magicien")) {
-            System.out.println("c'est pas pour toi");
+        } else if (joueur.getType().equals("Magicien")) {
+            System.out.println("Ce bouclier n'est pas pour toi.");
         }
     }
 }

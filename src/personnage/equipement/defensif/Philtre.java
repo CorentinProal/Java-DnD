@@ -18,7 +18,7 @@ public class Philtre extends EquipementDefensif implements Case {
         if (joueur.getType().equals("Magicien")) {
             System.out.println("Tu trouve une nouvelle " + getType());
             if (this.getDEFLevel() > joueur.getArmure().getDEFLevel()) {
-                joueur.setArmure(joueur.getArmure());
+                joueur.setArmure(this);
             } else if (this.getDEFLevel() <= joueur.getArmure().getDEFLevel()) {
                 System.out.println("L'armure est à chier");
             }

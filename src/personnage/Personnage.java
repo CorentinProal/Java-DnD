@@ -32,9 +32,9 @@ public abstract class Personnage {
         ennemi.recevoirDegats(ATQ);
     }
 
-    @Override
+
     public String toString() {
-        return "\n Nom : " + nom + ", Type : " + type + "\n HP 🛡️ : " + HP + "\n ATQ ⚔️ : " + ATQ;
+        return "\n Nom : " + nom + ", Type : " + type + "\n HP 🛡️ : " + HP + "\n ATQ ⚔️ : " + ATQ + "\n" + arme.toString() + "\n" + armure.toString();
     }
 
     public int getHP() {

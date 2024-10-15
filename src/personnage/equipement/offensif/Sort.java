@@ -17,7 +17,7 @@ public class Sort extends EquipementOffensif implements Case {
         if (joueur.getType().equals("Magicien")) {
             System.out.println("Tu trouve une nouvelle " + getType());
             if (this.getATQLevel() > joueur.getArme().getATQLevel()) {
-                joueur.setArme(joueur.getArme());
+                joueur.setArme(this);
             } else if (this.getATQLevel() <= joueur.getArme().getATQLevel()) {
                 System.out.println("Ouah tu trouve " + getType() + "Mais elle est trop nul");
             }
