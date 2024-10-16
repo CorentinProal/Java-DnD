@@ -43,13 +43,16 @@ public class Game {
                     case 1:
                         personnage = creerPersonnage();
                         setPersonnage(personnage);
+                        System.out.println("");
                         menu.message("Et paf c'est fait !  " + "\n Tu peux maintenant aller voir tes stats !");
                         break;
                     case 2:
+                        System.out.println("");
                         menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
                         continuer = false;
                         break;
                     default:
+                        System.out.println("");
                         menu.message("Option invalide.");
                         break;
                 }
@@ -65,11 +68,14 @@ public class Game {
                         continuer = !plateau.jouerUnTour(position, personnage);
                         position += plateau.getDernierLancer();
                         break;
+
                     case 3:
+                        System.out.println("");
                         menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
                         continuer = false;
                         break;
                     default:
+                        System.out.println("");
                         menu.message("Option invalide.");
                         break;
                 }
@@ -91,6 +97,7 @@ public class Game {
     private int choixOption(int nombreOptions) {
         int choix;
         do {
+            System.out.println("");
             System.out.print("Choisissez une option (1-" + nombreOptions + "): ");
             choix = sc.nextInt();
         } while (choix < 1 || choix > nombreOptions);

@@ -73,12 +73,6 @@ public abstract class Personnage implements Combat{
     }
 
 
-    @Override
-    public void combattre(Personnage joueur){
-
-    }
-
-
 
 
 }

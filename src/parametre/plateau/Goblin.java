@@ -20,11 +20,7 @@ public class Goblin extends Ennemi {
 
     @Override
     public void interaction(Personnage joueur) {
-
-    }
-
-    @Override
-    public void attaque(Personnage joueur) {
+        this.attaque(joueur);
 
     }
 }

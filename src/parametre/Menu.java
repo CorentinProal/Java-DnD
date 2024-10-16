@@ -11,16 +11,19 @@ public class Menu {
     }
 
     public void message(String message) {
+        System.out.println("");
         System.out.println(message);
         System.out.println();
     }
 
     public String nomPersonnage() {
+        System.out.println("");
         System.out.print("C'est quoi ton petit nom ? : ");
         return sc.next();
     }
 
     public int classePersonnage() {
+        System.out.println("");
         message("Tu joues quoi ? :");
         message("1. Guerrier");
         message("2. Magicien");
@@ -28,6 +31,7 @@ public class Menu {
     }
 
     public void afficherMenu() {
+        System.out.println("");
         message("1. Voir tes stats ");
         message("2. Ça part ! ");
         message("3. Quitter le jeu ");

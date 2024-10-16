@@ -72,25 +72,33 @@ public class Plateau {
         }
     }
 
-    public boolean jouerUnTour(int position, Personnage personnage1) throws horsPlateauException {
-        verifierPosition(position);
+    public boolean jouerUnTour(int position, Personnage joueur) throws horsPlateauException {
         int lancer = lancerDe();
         position += lancer;
-        verifierPosition(position);
 
-        System.out.println("Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
-                + (position + 1) + ": " + cases.get(position).toString());
+        verifierPosition(position);
 
         if (position >= TAILLE_PLATEAU) {
             System.out.println("Félicitations, vous avez gagné en atteignant la case 64 !");
             return true;
         }
 
+        System.out.println("Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
+                + (position + 1) + ": " + cases.get(position).toString());
+
         Case caseActuelle = cases.get(position);
-        caseActuelle.interaction(personnage1);
+
+        if (caseActuelle instanceof Ennemi) {
+            Ennemi ennemi = (Ennemi) caseActuelle;
+            ennemi.attaque(joueur);
+        } else {
+            caseActuelle.interaction(joueur);
+        }
 
         return false;
     }
+
+
 
     private int lancerDe() {
         return dernierLancer = new Random().nextInt(6) + 1;

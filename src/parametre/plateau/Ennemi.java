@@ -20,30 +20,27 @@ public abstract class Ennemi implements Combat, Case {
     vie -= degatsInfliges;
     }
 
-    public void combattre(Personnage joueur) {
-        System.out.println("Le combat commence contre un " + this.getType() + " nommé " + this.nom + " !!");
+    public void attaque(Personnage joueur) {
+        System.out.println("Le combat commence contre un " + this.nom + " !!");
 
         while (this.vie > 0 && joueur.getHP() > 0) {
-            // Le joueur attaque en premier
+
             this.degatsInfliges(joueur.getATQ());
             System.out.println(this.nom + " reçoit " + joueur.getATQ() + " points de dégâts.");
 
             if (this.vie <= 0) {
-                System.out.println("Vous avez vaincu " + this.nom + " le " + this.getType() + " !");
+                System.out.println("Vous avez vaincu le " + this.nom + " !");
                 break;
             }
-
-            // Si l'ennemi est encore en vie, il attaque le joueur
             joueur.degatsInfliges(this.getForce());
             System.out.println(joueur.getNom() + " reçoit " + this.getForce() + " points de dégâts.");
 
             if (joueur.getHP() <= 0) {
-                System.out.println("Vous avez été vaincu par " + this.nom + " le " + this.getType() + "...");
+                System.out.println("Vous avez été vaincu par le  " + this.nom + "...");
                 System.exit(0);
             }
         }
     }
-
 
 
 
