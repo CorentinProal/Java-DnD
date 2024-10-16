@@ -5,7 +5,16 @@ import parametre.plateau.Case;
 import personnage.classe.Personnage;
 
 
+/**
+ * The type Philtre.
+ */
 public class Philtre extends EquipementDefensif implements Case {
+    /**
+     * Instantiates a new Philtre.
+     *
+     * @param nom      the nom
+     * @param DEFLevel the def level
+     */
     public Philtre(String nom, int DEFLevel) {
         super();
         this.setName(nom);

@@ -2,10 +2,23 @@ package parametre.plateau;
 
 import personnage.classe.Personnage;
 
+/**
+ * The interface Case.
+ */
 public interface Case {
 
 
-     String getType();
+    /**
+     * Gets type.
+     *
+     * @return the type
+     */
+    String getType();
 
-     void interaction(Personnage joueur);
+    /**
+     * Interaction.
+     *
+     * @param joueur the joueur
+     */
+    void interaction(Personnage joueur);
 }

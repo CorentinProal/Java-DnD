@@ -3,9 +3,17 @@ package parametre.plateau.combat;
 import personnage.classe.Personnage;
 import java.util.Scanner;
 
+/**
+ * The type Dragon.
+ */
 public class Dragon extends Ennemi {
     private Scanner scanner;
 
+    /**
+     * Instantiates a new Dragon.
+     *
+     * @param scanner the scanner
+     */
     public Dragon(Scanner scanner) {
         super("Dragon", 25, 17, scanner);
     }

@@ -3,7 +3,16 @@ package personnage.equipement.defensif;
 import parametre.plateau.Case;
 import personnage.classe.Personnage;
 
+/**
+ * The type Potion.
+ */
 public class Potion extends Bonus implements Case {
+    /**
+     * Instantiates a new Potion.
+     *
+     * @param nom   the nom
+     * @param effet the effet
+     */
     public Potion(String nom, int effet) {
         super();
         this.setEffet(effet);

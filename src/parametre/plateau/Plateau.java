@@ -19,12 +19,23 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The type Plateau.
+ */
 public class Plateau {
+    /**
+     * The constant TAILLE_PLATEAU.
+     */
     public static final int TAILLE_PLATEAU = 64;
     private List<Case> cases;
     private int dernierLancer;
     private Scanner scanner;
 
+    /**
+     * Instantiates a new Plateau.
+     *
+     * @param personnage the personnage
+     */
     public Plateau(Personnage personnage) {
         this.scanner = new Scanner(System.in);
         cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
@@ -75,6 +86,14 @@ public class Plateau {
         }
     }
 
+    /**
+     * Jouer un tour boolean.
+     *
+     * @param position the position
+     * @param joueur   the joueur
+     * @return the boolean
+     * @throws horsPlateauException the hors plateau exception
+     */
     public boolean jouerUnTour(int position, Personnage joueur) throws horsPlateauException {
         int lancer = lancerDe();
         position += lancer;
@@ -115,6 +134,11 @@ public class Plateau {
         if (position > TAILLE_PLATEAU) throw new horsPlateauException("Tu es hors plateau !");
     }
 
+    /**
+     * Gets dernier lancer.
+     *
+     * @return the dernier lancer
+     */
     public int getDernierLancer() {
         return dernierLancer;
     }
