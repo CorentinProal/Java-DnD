@@ -13,7 +13,7 @@ public class Potion extends Bonus implements Case {
 
     @Override
     public void interaction(Personnage joueur) {
-        System.out.println("Wouah une new potion");
+        System.out.println("Wouah une nouvelle potion");
         int nouveauxHP = joueur.getHP() + this.getEffet();
         joueur.setHP(nouveauxHP);
         System.out.println(joueur.getNom() + " utilise " + this.getNom() + " ! Tes HP sont maintenant de " + joueur.getHP());
