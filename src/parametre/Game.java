@@ -32,7 +32,16 @@ public class Game {
     public void start() throws horsPlateauException {
         boolean continuer = true;
 
-        menu.message("\n Bienvenue chez Kayangel !");
+        menu.message("\n Bienvenue chez Kayangel ! \n              v\n" +
+                "        (__)v | v\n" +
+                "        /\\/\\\\_|_/\n" +
+                "       _\\__/  |\n" +
+                "      /  \\/`\\<`)\n" +
+                "      \\ (  |\\_/\n" +
+                "      /)))-(  |\n" +
+                "     / /^ ^ \\ |\n" +
+                "    /  )^/\\^( |\n" +
+                "    )_//`__>> |\n");
 
         while (continuer) {
             if (personnage == null) {
@@ -49,7 +58,20 @@ public class Game {
                         break;
                     case 2:
                         System.out.println("");
-                        menu.message("Merci d'avoir joué !" + "\n T'es un GOAT");
+                        menu.message("Merci d'avoir joué !" + "\n  _/|       |\\_\n" +
+                                " /  |       |  \\\n" +
+                                "|    \\     /    |\n" +
+                                "|  \\ /     \\ /  |\n" +
+                                "| \\  |     |  / |\n" +
+                                "| \\ _\\_/^\\_/_ / |\n" +
+                                "|    --\\//--    |\n" +
+                                " \\_  \\     /  _/\n" +
+                                "   \\__  |  __/\n" +
+                                "      \\ _ /\n" +
+                                "     _/   \\_ \n" +
+                                "    / _/|\\_ \\\n" +
+                                "     /  |  \\ \n" +
+                                "      / v \\");
                         continuer = false;
                         break;
                     default:

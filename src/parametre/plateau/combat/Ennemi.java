@@ -32,7 +32,7 @@ public abstract class Ennemi extends Combat implements Case {
             System.out.println(this.nom + " reçoit " + joueur.getATQ() + " points de dégâts.");
 
             if (this.vie <= 0) {
-                System.out.println("Vous avez vaincu le " + this.nom + " !");
+                System.out.println("Tu as vaincu le " + this.nom + " !");
                 break;
             }
 
@@ -40,12 +40,29 @@ public abstract class Ennemi extends Combat implements Case {
             System.out.println(joueur.getNom() + " reçoit " + this.getForce() + " points de dégâts.");
 
             if (joueur.getHP() <= 0) {
-                System.out.println(joueur.getNom() + " est mort ! La partie est terminée.");
+                System.out.println(joueur.getNom() + " est mort ! Viens à moi.\n " +
+                        "                  ,____\n" +
+                        "                   |---.\\\n" +
+                        "           ___     |    `\n" +
+                        "          / .-\\  ./=)\n" +
+                        "         |  |\"|_/\\/|\n" +
+                        "         ;  |-;| /_|\n" +
+                        "        / \\_| |/ \\ |\n" +
+                        "       /      \\/\\( |\n" +
+                        "       |   /  |` ) |\n" +
+                        "       /   \\ _/    |\n" +
+                        "      /--._/  \\    |\n" +
+                        "      `/|)    |    /\n" +
+                        "        /     |   |\n" +
+                        "      .'      |   |\n" +
+                        "     /         \\  |\n" +
+                        "    (_.-.__.__./  /\n" );
+
                 System.exit(0); // Terminer le programme
             }
 
             // Demander au joueur s'il veut continuer à attaquer ou fuir
-            System.out.println("Voulez-vous (1) continuer à attaquer ou (2) fuir ?");
+            System.out.println(" 1 - Continuer  \n 2 - Fuir ");
             int choix = scanner.nextInt();
 
             if (choix == 2) {
