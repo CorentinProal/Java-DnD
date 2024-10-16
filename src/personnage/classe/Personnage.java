@@ -4,7 +4,7 @@ import parametre.plateau.combat.Combat;
 import personnage.equipement.defensif.EquipementDefensif;
 import personnage.equipement.offensif.EquipementOffensif;
 
-public abstract class Personnage implements Combat{
+public abstract class Personnage extends Combat {
     protected String nom;
     protected String type;
     protected int HP;

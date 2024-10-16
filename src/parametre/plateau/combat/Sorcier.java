@@ -1,10 +1,11 @@
 package parametre.plateau.combat;
 
 import personnage.classe.Personnage;
+import java.util.Scanner;
 
 public class Sorcier extends Ennemi {
-    public Sorcier() {
-        super("Sorcier", 9, 2);
+    public Sorcier(Scanner scanner) {
+        super("Sorcier", 15, 9, scanner);
     }
 
     @Override

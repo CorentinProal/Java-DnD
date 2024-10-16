@@ -23,7 +23,6 @@ public class Menu {
     }
 
     public int classePersonnage() {
-        System.out.println("");
         message("Tu joues quoi ? :");
         message("1. Guerrier");
         message("2. Magicien");

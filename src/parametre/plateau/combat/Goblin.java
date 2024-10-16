@@ -1,11 +1,11 @@
 package parametre.plateau.combat;
 
 import personnage.classe.Personnage;
+import java.util.Scanner;
 
 public class Goblin extends Ennemi {
-    public Goblin() {
-        super("Goblin", 6, 1);
-
+    public Goblin(Scanner scanner) {
+        super("Goblin", 6, 5, scanner);
     }
 
     @Override

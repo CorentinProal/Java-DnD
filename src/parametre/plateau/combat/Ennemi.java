@@ -1,31 +1,33 @@
 package parametre.plateau.combat;
 
-
 import parametre.plateau.Case;
 import personnage.classe.Personnage;
+import java.util.Scanner;
 
-public abstract class Ennemi implements Combat, Case {
+public abstract class Ennemi extends Combat implements Case {
     protected String nom;
     protected int vie;
     protected int force;
     private String type;
+    protected Scanner scanner; // Scanner doit être un champ de classe
 
-    public Ennemi(String nom, int vie, int force) {
+    public Ennemi(String nom, int vie, int force, Scanner scanner) {
         this.nom = nom;
         this.vie = vie;
         this.force = force;
+        this.scanner = scanner; // Initialiser le scanner
     }
 
     @Override
     public void degatsInfliges(int degatsInfliges){
-    vie -= degatsInfliges;
+        vie -= degatsInfliges;
     }
 
+    @Override
     public void attaque(Personnage joueur) {
         System.out.println("Le combat commence contre un " + this.nom + " !!");
 
         while (this.vie > 0 && joueur.getHP() > 0) {
-
             this.degatsInfliges(joueur.getATQ());
             System.out.println(this.nom + " reçoit " + joueur.getATQ() + " points de dégâts.");
 
@@ -33,17 +35,25 @@ public abstract class Ennemi implements Combat, Case {
                 System.out.println("Vous avez vaincu le " + this.nom + " !");
                 break;
             }
-            joueur.degatsInfliges(this.getForce());
+
+            infligerDegats(joueur, this.getForce());
             System.out.println(joueur.getNom() + " reçoit " + this.getForce() + " points de dégâts.");
 
             if (joueur.getHP() <= 0) {
-                System.out.println("Vous avez été vaincu par le  " + this.nom + "...");
-                System.exit(0);
+                System.out.println(joueur.getNom() + " est mort ! La partie est terminée.");
+                System.exit(0); // Terminer le programme
+            }
+
+            // Demander au joueur s'il veut continuer à attaquer ou fuir
+            System.out.println("Voulez-vous (1) continuer à attaquer ou (2) fuir ?");
+            int choix = scanner.nextInt();
+
+            if (choix == 2) {
+                System.out.println(joueur.getNom() + " a choisi de fuir !");
+                break; // Sortir de la boucle de combat
             }
         }
     }
-
-
 
     public String getNom() {
         return nom;
@@ -53,12 +63,9 @@ public abstract class Ennemi implements Combat, Case {
         return vie;
     }
 
-
     public String toString(){
         return nom + " " + vie;
-
-    };
-
+    }
 
     public int getForce(){
         return force;

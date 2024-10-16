@@ -1,9 +1,6 @@
 package parametre.plateau;
 
-//import parametre.plateau.combat.Dragon;
-//import parametre.plateau.combat.Ennemi;
-//import parametre.plateau.combat.Goblin;
-//import parametre.plateau.combat.Sorcier;
+
 import parametre.plateau.combat.Dragon;
 import parametre.plateau.combat.Ennemi;
 import parametre.plateau.combat.Goblin;
@@ -20,24 +17,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Plateau {
     public static final int TAILLE_PLATEAU = 64;
     private List<Case> cases;
     private int dernierLancer;
+    private Scanner scanner;
 
     public Plateau(Personnage personnage) {
+        this.scanner = new Scanner(System.in);
         cases = new ArrayList<>(Collections.nCopies(TAILLE_PLATEAU, new CaseVide()));
 
         List<Case> objets = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            objets.add(new Dragon());
+            objets.add(new Dragon(scanner));
         }
         for (int i = 0; i < 5; i++) {
-            objets.add(new Sorcier());
+            objets.add(new Sorcier(scanner));
         }
         for (int i = 0; i < 7; i++) {
-            objets.add(new Goblin());
+            objets.add(new Goblin(scanner));
         }
 
         for (int i = 0; i < 3; i++) {
@@ -82,11 +82,11 @@ public class Plateau {
         verifierPosition(position);
 
         if (position >= TAILLE_PLATEAU) {
-            System.out.println("Félicitations, vous avez gagné en atteignant la case 64 !");
+            System.out.println(" Bien joué, Tu es sorti de chez Kayangel en vie !\" ");
             return true;
         }
 
-        System.out.println("Vous avez lancé un " + lancer + " ! Vous êtes maintenant sur la case "
+        System.out.println("Tu a lancé un " + lancer + " ! Tu es maintenant sur la case "
                 + (position + 1) + ": " + cases.get(position).toString());
 
         Case caseActuelle = cases.get(position);
@@ -94,6 +94,10 @@ public class Plateau {
         if (caseActuelle instanceof Ennemi) {
             Ennemi ennemi = (Ennemi) caseActuelle;
             ennemi.attaque(joueur);
+            // Vérifier si l'ennemi a été vaincu
+            if (ennemi.getVie() <= 0) {
+                System.out.println("Tu peut avancer ! ");
+            }
         } else {
             caseActuelle.interaction(joueur);
         }

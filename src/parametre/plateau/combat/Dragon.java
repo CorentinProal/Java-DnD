@@ -1,10 +1,13 @@
 package parametre.plateau.combat;
 
 import personnage.classe.Personnage;
+import java.util.Scanner;
 
 public class Dragon extends Ennemi {
-    public Dragon() {
-        super("Dragon", 15, 4);
+    private Scanner scanner;
+
+    public Dragon(Scanner scanner) {
+        super("Dragon", 25, 17, scanner);
     }
 
     @Override
