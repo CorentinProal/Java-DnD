@@ -1,4 +1,4 @@
-package personnage.equipement;
+package personnage.equipement.defensif;
 
 public abstract class Bonus {
     private String nom;

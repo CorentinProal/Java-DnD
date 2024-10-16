@@ -1,5 +1,7 @@
 package parametre;
 
+import parametre.plateau.horsPlateauException;
+
 public class Main {
     public static void main(String[] args) throws horsPlateauException {
         Game game = new Game();

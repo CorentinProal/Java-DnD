@@ -1,16 +1,17 @@
-package parametre.plateau;
+package parametre.plateau.combat;
 
 import personnage.classe.Personnage;
 
-public class Dragon extends Ennemi {
-    public Dragon() {
-        super("Dragon", 15, 4);
+public class Sorcier extends Ennemi {
+    public Sorcier() {
+        super("Sorcier", 9, 2);
     }
 
     @Override
     public String toString() {
         return "Un " + nom + " avec " + vie + " HP et une force de " + force + ".";
     }
+
     @Override
     public String getType() {
         return "Monstre";

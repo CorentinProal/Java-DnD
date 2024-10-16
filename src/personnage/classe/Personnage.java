@@ -1,6 +1,6 @@
 package personnage.classe;
 
-import parametre.plateau.Combat;
+import parametre.plateau.combat.Combat;
 import personnage.equipement.defensif.EquipementDefensif;
 import personnage.equipement.offensif.EquipementOffensif;
 

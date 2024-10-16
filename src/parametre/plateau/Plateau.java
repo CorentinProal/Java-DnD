@@ -1,11 +1,14 @@
 package parametre.plateau;
 
-import parametre.horsPlateauException;
-//import parametre.plateau.Dragon;
-//import parametre.plateau.Ennemi;
-//import parametre.plateau.Goblin;
-//import parametre.plateau.Sorcier;
-import personnage.equipement.Potion;
+//import parametre.plateau.combat.Dragon;
+//import parametre.plateau.combat.Ennemi;
+//import parametre.plateau.combat.Goblin;
+//import parametre.plateau.combat.Sorcier;
+import parametre.plateau.combat.Dragon;
+import parametre.plateau.combat.Ennemi;
+import parametre.plateau.combat.Goblin;
+import parametre.plateau.combat.Sorcier;
+import personnage.equipement.defensif.Potion;
 
 import personnage.classe.Personnage;
 import personnage.equipement.defensif.Bouclier;

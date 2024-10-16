@@ -1,4 +1,4 @@
-package personnage.equipement;
+package personnage.equipement.defensif;
 
 import parametre.plateau.Case;
 import personnage.classe.Personnage;

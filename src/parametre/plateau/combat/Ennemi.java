@@ -1,6 +1,7 @@
-package parametre.plateau;
+package parametre.plateau.combat;
 
 
+import parametre.plateau.Case;
 import personnage.classe.Personnage;
 
 public abstract class Ennemi implements Combat, Case {

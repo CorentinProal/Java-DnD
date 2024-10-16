@@ -1,10 +1,11 @@
-package parametre.plateau;
+package parametre.plateau.combat;
 
 import personnage.classe.Personnage;
 
-public class Sorcier extends Ennemi {
-    public Sorcier() {
-        super("Sorcier", 9, 2);
+public class Goblin extends Ennemi {
+    public Goblin() {
+        super("Goblin", 6, 1);
+
     }
 
     @Override

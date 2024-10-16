@@ -1,4 +1,4 @@
-package parametre.plateau;
+package parametre.plateau.combat;
 
 import personnage.classe.Personnage;
 

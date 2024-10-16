@@ -1,5 +1,6 @@
 package parametre;
 
+import parametre.plateau.horsPlateauException;
 import personnage.classe.Personnage;
 import personnage.classe.Guerrier;
 import personnage.classe.Magicien;
