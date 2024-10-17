@@ -3,16 +3,7 @@ package personnage.equipement.offensif;
 import parametre.plateau.Case;
 import personnage.classe.Personnage;
 
-/**
- * The type Arme.
- */
 public class Arme extends EquipementOffensif implements Case {
-    /**
-     * Instantiates a new Arme.
-     *
-     * @param nom      the nom
-     * @param ATQLevel the atq level
-     */
     public Arme(String nom, int ATQLevel) {
         super();
         this.setName(nom);

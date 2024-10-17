@@ -2,9 +2,6 @@ package parametre.plateau;
 
 import personnage.classe.Personnage;
 
-/**
- * The type Case vide.
- */
 public class CaseVide implements Case {
     @Override
     public String getType() {

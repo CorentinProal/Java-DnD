@@ -3,46 +3,25 @@ package parametre;
 import java.util.Scanner;
 import personnage.classe.Personnage;
 
-/**
- * The type Menu.
- */
 public class Menu {
     private Scanner sc;
 
-    /**
-     * Instantiates a new Menu.
-     */
     public Menu() {
         sc = new Scanner(System.in);
     }
 
-    /**
-     * Message.
-     *
-     * @param message the message
-     */
     public void message(String message) {
         System.out.println("");
         System.out.println(message);
         System.out.println();
     }
 
-    /**
-     * Nom personnage string.
-     *
-     * @return the string
-     */
     public String nomPersonnage() {
         System.out.println("");
         System.out.print("C'est quoi ton petit nom ? : ");
         return sc.next();
     }
 
-    /**
-     * Classe personnage int.
-     *
-     * @return the int
-     */
     public int classePersonnage() {
         message("Tu joues quoi ? :");
         message("1. Guerrier");
@@ -50,9 +29,6 @@ public class Menu {
         return choixOption(2);
     }
 
-    /**
-     * Afficher menu.
-     */
     public void afficherMenu() {
         System.out.println("");
         message("1. Voir tes stats ");
@@ -60,11 +36,6 @@ public class Menu {
         message("3. Quitter le jeu ");
     }
 
-    /**
-     * Afficher infos personnage.
-     *
-     * @param personnage the personnage
-     */
     public void afficherInfosPersonnage(Personnage personnage) {
         if (personnage != null) {
             message(personnage.toString());

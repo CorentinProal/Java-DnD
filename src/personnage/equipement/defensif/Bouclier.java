@@ -4,16 +4,7 @@ import parametre.plateau.Case;
 import personnage.classe.Personnage;
 
 
-/**
- * The type Bouclier.
- */
 public class Bouclier extends EquipementDefensif implements Case {
-    /**
-     * Instantiates a new Bouclier.
-     *
-     * @param nom      the nom
-     * @param DEFLevel the def level
-     */
     public Bouclier(String nom, int DEFLevel) {
         super();
         this.setName(nom);

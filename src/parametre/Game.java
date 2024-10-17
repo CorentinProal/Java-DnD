@@ -7,9 +7,6 @@ import personnage.classe.Magicien;
 import java.util.Scanner;
 import parametre.plateau.Plateau;
 
-/**
- * The type Game.
- */
 public class Game {
     private Personnage personnage;
     private int position;
@@ -17,39 +14,21 @@ public class Game {
     private Menu menu;
     private Plateau plateau;
 
-    /**
-     * Instantiates a new Game.
-     */
     public Game() {
         this.sc = new Scanner(System.in);
         this.menu = new Menu();
         this.position = 0;
     }
 
-    /**
-     * Sets personnage.
-     *
-     * @param personnage the personnage
-     */
     public void setPersonnage(Personnage personnage) {
         this.personnage = personnage;
         this.plateau = new Plateau(personnage);
     }
 
-    /**
-     * Gets personnage.
-     *
-     * @return the personnage
-     */
     public Personnage getPersonnage() {
         return personnage;
     }
 
-    /**
-     * Start.
-     *
-     * @throws horsPlateauException the hors plateau exception
-     */
     public void start() throws horsPlateauException {
         boolean continuer = true;
 

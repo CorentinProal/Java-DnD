@@ -4,36 +4,13 @@ import parametre.plateau.Case;
 import personnage.classe.Personnage;
 import java.util.Scanner;
 
-/**
- * The type Ennemi.
- */
 public abstract class Ennemi extends Combat implements Case {
-    /**
-     * The Nom.
-     */
     protected String nom;
-    /**
-     * The Vie.
-     */
     protected int vie;
-    /**
-     * The Force.
-     */
     protected int force;
     private String type;
-    /**
-     * The Scanner.
-     */
     protected Scanner scanner; // Scanner doit être un champ de classe
 
-    /**
-     * Instantiates a new Ennemi.
-     *
-     * @param nom     the nom
-     * @param vie     the vie
-     * @param force   the force
-     * @param scanner the scanner
-     */
     public Ennemi(String nom, int vie, int force, Scanner scanner) {
         this.nom = nom;
         this.vie = vie;
@@ -95,20 +72,10 @@ public abstract class Ennemi extends Combat implements Case {
         }
     }
 
-    /**
-     * Gets nom.
-     *
-     * @return the nom
-     */
     public String getNom() {
         return nom;
     }
 
-    /**
-     * Gets vie.
-     *
-     * @return the vie
-     */
     public int getVie() {
         return vie;
     }
@@ -117,11 +84,6 @@ public abstract class Ennemi extends Combat implements Case {
         return nom + " " + vie;
     }
 
-    /**
-     * Get force int.
-     *
-     * @return the int
-     */
     public int getForce(){
         return force;
     }

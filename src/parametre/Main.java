@@ -2,16 +2,7 @@ package parametre;
 
 import parametre.plateau.horsPlateauException;
 
-/**
- * The type Main.
- */
 public class Main {
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     * @throws horsPlateauException the hors plateau exception
-     */
     public static void main(String[] args) throws horsPlateauException {
         Game game = new Game();
         game.start();

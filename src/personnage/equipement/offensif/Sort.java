@@ -4,16 +4,7 @@ package personnage.equipement.offensif;
 import parametre.plateau.Case;
 import personnage.classe.Personnage;
 
-/**
- * The type Sort.
- */
 public class Sort extends EquipementOffensif implements Case {
-    /**
-     * Instantiates a new Sort.
-     *
-     * @param nom      the nom
-     * @param ATQLevel the atq level
-     */
     public Sort(String nom, int ATQLevel) {
         super();
         this.setName(nom);
